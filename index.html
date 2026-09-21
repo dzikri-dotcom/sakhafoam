@@ -6,22 +6,23 @@
   <title>Sakha Foam — Tidur Nyaman, Hidup Lebih Segar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     :root { --ink:#101c38; --forest:#10264d; --sage:#dce8da; --cream:#fffdf6; --peach:#ffe4a3; --accent:#f5b800; --line:#e8e3d7; }
     * { box-sizing:border-box; } html { scroll-behavior:smooth; }
-    body { margin:0; font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--cream); }
+    body { margin:0; font-family:'Plus Jakarta Sans',sans-serif; color:var(--ink); background:var(--cream); }
     a { color:inherit; text-decoration:none; }
     .announcement { background:var(--forest); color:#fff; text-align:center; padding:10px 18px; font-size:13px; letter-spacing:.04em; }
     nav { height:80px; max-width:1180px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:0 24px; }
-    .logo { font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--forest); } .logo span{color:var(--accent)}
+    .logo { display:flex; align-items:center; width:220px; height:64px; overflow:hidden; }
+    .logo img { display:block; width:100%; height:auto; object-fit:contain; mix-blend-mode:multiply; }
     .links { display:flex; gap:28px; font-size:14px; font-weight:600; } .links a:hover{color:var(--accent)}
-    .nav-cta,.button { border:0; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; background:var(--forest); color:#fff; border-radius:999px; padding:13px 22px; font:600 14px 'DM Sans',sans-serif; transition:.25s transform,.25s background; } .nav-cta:hover,.button:hover{transform:translateY(-2px); background:#355d40;}
+    .nav-cta,.button { border:0; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; background:var(--forest); color:#fff; border-radius:999px; padding:13px 22px; font:700 14px 'Plus Jakarta Sans',sans-serif; transition:.25s transform,.25s background; } .nav-cta:hover,.button:hover{transform:translateY(-2px); background:#355d40;}
     .hero { max-width:1180px; margin:0 auto; padding:32px 24px 80px; display:grid; grid-template-columns:1fr 1.05fr; align-items:center; gap:55px; }
     .eyebrow { color:var(--accent); text-transform:uppercase; letter-spacing:.14em; font-size:12px; font-weight:700; }
-    h1,h2 { font-family:'Playfair Display',serif; margin:12px 0 18px; line-height:1.05; } h1{font-size:clamp(44px,6vw,75px)} h2{font-size:clamp(32px,4vw,50px)}
+    h1,h2 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; margin:12px 0 18px; line-height:1.08; } h1{font-size:clamp(44px,6vw,75px)} h2{font-size:clamp(32px,4vw,50px)}
     .hero p { color:#586158; font-size:17px; line-height:1.7; max-width:470px; } .hero-actions{display:flex; flex-wrap:wrap; gap:14px; margin-top:28px}.button.light{background:transparent;color:var(--forest);border:1px solid var(--forest)}.button.light:hover{background:var(--sage)}
     .hero-visual { min-height:470px; border-radius:180px 180px 28px 28px; background:var(--peach); position:relative; overflow:hidden; }
     .sun { position:absolute; width:260px; height:260px; background:#ffc928; border-radius:50%; top:45px; right:35px; opacity:.72; }
@@ -33,11 +34,11 @@
     .products { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }.card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.25s transform,.25s box-shadow}.card:hover{transform:translateY(-6px);box-shadow:0 16px 28px rgba(16,38,77,.13)}.product-art{height:210px;position:relative;background:#fff0c4}.product-art.green{background:#dce7f2}.product-art.orange{background:#ffe09a}.mini-bed{position:absolute;left:13%;bottom:43px;width:74%;height:74px;border-radius:17px;background:#fffdf8;box-shadow:0 14px 15px rgba(16,38,77,.15)}.mini-bed:before{content:'';position:absolute;left:6%;top:-27px;width:42%;height:37px;border-radius:15px;background:#fbf8f0}.mini-bed:after{content:'';position:absolute;right:7%;top:-20px;width:35%;height:29px;border-radius:13px;background:#9fb8d5}.card-body{padding:20px}.tag{font-size:11px;color:#bd8500;font-weight:700;text-transform:uppercase;letter-spacing:.1em}.card h3{margin:8px 0;font-size:19px}.price{display:flex;justify-content:space-between;align-items:center;font-weight:700}.price small{color:#7b827b;text-decoration:line-through;font-weight:400;margin-left:4px}
     .benefits { background:var(--forest); max-width:none; color:#fff; padding:82px max(24px,calc((100% - 1132px)/2)); }.benefits .eyebrow{color:#f1b080}.benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:40px}.benefit-grid h3{font-size:19px;margin:12px 0}.benefit-grid p{color:#c8d5ca;line-height:1.65;margin:0}.icon{font-size:29px;color:#f1b080}
     .cta { padding-top:92px; }.cta-box{background:var(--peach);border-radius:26px;padding:64px 8%;text-align:center}.cta-box h2{max-width:620px;margin:12px auto 18px}.cta-box p{color:#60665f;max-width:500px;margin:0 auto 25px;line-height:1.6}
-    footer { border-top:1px solid var(--line);max-width:1180px;margin:auto;padding:30px 24px;display:flex;justify-content:space-between;gap:15px;font-size:13px;color:#6b726b }.footer-logo{font-family:'Playfair Display',serif;font-size:20px;color:var(--forest);font-weight:700}
+    footer { border-top:1px solid var(--line);max-width:1180px;margin:auto;padding:30px 24px;display:flex;justify-content:space-between;gap:15px;font-size:13px;color:#6b726b }.footer-logo{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;color:var(--forest);font-weight:800}
     @media(max-width:760px){.links{display:none}nav{height:70px}.hero{grid-template-columns:1fr;padding-top:20px;gap:35px}.hero-visual{min-height:380px;border-radius:100px 100px 22px 22px}.products,.benefit-grid{grid-template-columns:1fr}.section-top{display:block}.section-top p{margin-top:14px}.benefits{padding-top:60px;padding-bottom:60px}.benefit-grid{gap:25px}.trust{justify-content:flex-start;gap:14px}.cta-box{padding:48px 24px}footer{flex-direction:column}}
     /* Premium navy & yellow refresh */
     body{background:#dfeafb}.announcement{background:#071b3a}.logo{letter-spacing:-1.5px}.logo span{color:#f9bd17}.nav-cta,.button{background:#102f61;box-shadow:0 9px 18px rgba(16,47,97,.17)}.nav-cta:hover,.button:hover{background:#f3b916;color:#102042}.hero{padding-top:54px}.hero h1{letter-spacing:-2.5px;color:#0d2752}.hero p{color:#405879}.eyebrow{color:#b87900}.hero-visual{border-radius:32px;background:#10305f;box-shadow:20px 22px 0 #f8c529;isolation:isolate}.hero-visual:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,27,58,.83),rgba(7,27,58,.08));z-index:-1}.hero-visual img{width:100%;height:100%;position:absolute;object-fit:cover;inset:0;z-index:-2}.sun,.bed,.base{display:none}.floating{border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.93);backdrop-filter:blur(8px)}.rating{color:#102f61}.delivery{color:#a67200}.trust{background:#102f61;color:#fff}.trust span:before{color:#f8c529}.products{gap:25px}.card{border:1px solid rgba(16,47,97,.08);background:#edf4ff;box-shadow:0 10px 30px rgba(16,47,97,.08)}.card:hover{box-shadow:0 18px 35px rgba(16,47,97,.18)}.product-art{height:255px;overflow:hidden}.product-art img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.card:hover .product-art img{transform:scale(1.07)}.mini-bed{display:none}.tag{color:#a97500}.price span{color:#f0ae00;font-size:21px}.benefits{background:#0b2854;position:relative;overflow:hidden}.benefits:after{content:'';position:absolute;width:450px;height:450px;border:90px solid rgba(247,193,37,.12);border-radius:50%;right:-180px;top:-230px}.benefits h2{position:relative;z-index:1}.icon{background:#f6bd20;color:#0b2854;border-radius:14px;width:54px;height:54px;display:grid;place-items:center;font-size:22px}.cta-box{background:#f9c328;position:relative;overflow:hidden}.cta-box:before{content:'✦';position:absolute;color:rgba(12,39,80,.12);font-size:190px;left:3%;top:-70px}.cta-box .eyebrow{color:#0b2854}.cta-box h2{color:#0b2854}.cta-box .button{background:#0b2854}.cta-box .button:hover{background:#fff;color:#0b2854}footer{color:#456080}.gallery{padding-top:0}.gallery-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:18px}.gallery-card{height:230px;border-radius:18px;overflow:hidden;position:relative}.gallery-card:first-child{grid-row:span 2;height:478px}.gallery-card img{width:100%;height:100%;object-fit:cover}.gallery-card:after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(7,27,58,.72))}.gallery-card span{position:absolute;left:19px;bottom:17px;color:#fff;font-weight:700;z-index:1}.review-strip{max-width:none;padding:55px max(24px,calc((100% - 1132px)/2));background:#bed2ef;border-top:1px solid #9ab8e0;border-bottom:1px solid #9ab8e0}.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.review{padding:23px;border-radius:15px;background:#f5c62b}.stars{color:#0b2854;font-size:13px}.review p{line-height:1.65;color:#203a63}.review b{color:#0b2854;font-size:14px}@media(max-width:760px){.gallery-grid,.review-grid{grid-template-columns:1fr}.gallery-card,.gallery-card:first-child{height:230px;grid-row:auto}.hero-visual{box-shadow:10px 12px 0 #f8c529}}
-    .numbers{max-width:none;padding:48px max(24px,calc((100% - 1132px)/2));background:#f5c62b;color:#0b2854;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}.number b{display:block;font-family:'Playfair Display',serif;font-size:42px;line-height:1}.number span{font-size:13px;font-weight:700;letter-spacing:.02em}.sleep-guide{padding-bottom:35px}.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.guide-card{padding:30px;border-radius:20px;background:#0b2854;color:#fff;min-height:230px;position:relative;overflow:hidden}.guide-card:nth-child(2){background:#f5c62b;color:#0b2854}.guide-card:nth-child(3){background:#2a5691}.guide-no{font-family:'Playfair Display',serif;font-size:56px;opacity:.22;position:absolute;right:22px;top:12px}.guide-card h3{font-size:21px;margin:45px 0 10px}.guide-card p{margin:0;line-height:1.6;color:#d9e7ff}.guide-card:nth-child(2) p{color:#263d62}.compare{background:#c3d9f5;max-width:none;padding:85px max(24px,calc((100% - 1132px)/2))}.compare-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:55px;align-items:center}.compare-text p{color:#405879;line-height:1.7}.feature-list{display:grid;gap:12px;margin-top:25px}.feature-list span{font-size:14px;font-weight:600}.feature-list i{color:#d89c00;margin-right:8px}.comparison-card{border-radius:22px;background:#0b2854;color:#fff;padding:28px;box-shadow:14px 15px 0 #f5c62b}.compare-row{display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.15);font-size:14px}.compare-row b:last-child,.check{color:#f5c62b}.faq{padding-top:90px}.faq-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:55px}.faq-list{display:grid;gap:12px}.faq-item{background:#edf4ff;border:1px solid #b7cbe9;border-radius:13px;padding:18px 20px}.faq-item summary{cursor:pointer;font-weight:700;color:#0b2854;list-style:none;display:flex;justify-content:space-between}.faq-item summary:after{content:'+';font-size:22px;color:#d89c00}.faq-item p{color:#536b8e;line-height:1.6;font-size:14px;margin:14px 0 0}.newsletter{max-width:none;background:#071b3a;padding:60px max(24px,calc((100% - 1132px)/2));display:flex;justify-content:space-between;align-items:center;gap:35px;color:#fff}.newsletter h2{font-size:35px;margin:7px 0}.newsletter p{color:#b8cae4;margin:0}.newsletter-form{display:flex;background:#fff;border-radius:999px;padding:5px;min-width:min(100%,390px)}.newsletter-form input{border:0;outline:0;flex:1;border-radius:999px;padding:0 16px;font:14px 'DM Sans',sans-serif}.newsletter-form button{border:0;border-radius:999px;padding:12px 18px;background:#f5c62b;color:#0b2854;font-weight:700;cursor:pointer}.footer-main{max-width:1180px;margin:auto;padding:55px 24px 30px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}.footer-main p,.footer-main a{color:#59708f;font-size:14px;line-height:1.8}.footer-main h4{color:#0b2854;margin:0 0 10px}.footer-main a{display:block}.socials{display:flex;gap:10px;margin-top:14px}.socials a{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#0b2854;color:#f5c62b}@media(max-width:760px){.numbers,.guide-grid,.compare-grid,.faq-grid,.footer-main{grid-template-columns:1fr}.numbers{padding-top:36px;padding-bottom:36px}.compare-grid,.faq-grid{gap:25px}.newsletter{display:block}.newsletter-form{margin-top:22px}.footer-main{gap:20px}}
+    .numbers{max-width:none;padding:48px max(24px,calc((100% - 1132px)/2));background:#f5c62b;color:#0b2854;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}.number b{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:42px;line-height:1}.number span{font-size:13px;font-weight:700;letter-spacing:.02em}.sleep-guide{padding-bottom:35px}.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.guide-card{padding:30px;border-radius:20px;background:#0b2854;color:#fff;min-height:230px;position:relative;overflow:hidden}.guide-card:nth-child(2){background:#f5c62b;color:#0b2854}.guide-card:nth-child(3){background:#2a5691}.guide-no{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:56px;opacity:.22;position:absolute;right:22px;top:12px}.guide-card h3{font-size:21px;margin:45px 0 10px}.guide-card p{margin:0;line-height:1.6;color:#d9e7ff}.guide-card:nth-child(2) p{color:#263d62}.compare{background:#c3d9f5;max-width:none;padding:85px max(24px,calc((100% - 1132px)/2))}.compare-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:55px;align-items:center}.compare-text p{color:#405879;line-height:1.7}.feature-list{display:grid;gap:12px;margin-top:25px}.feature-list span{font-size:14px;font-weight:600}.feature-list i{color:#d89c00;margin-right:8px}.comparison-card{border-radius:22px;background:#0b2854;color:#fff;padding:28px;box-shadow:14px 15px 0 #f5c62b}.compare-row{display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.15);font-size:14px}.compare-row b:last-child,.check{color:#f5c62b}.faq{padding-top:90px}.faq-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:55px}.faq-list{display:grid;gap:12px}.faq-item{background:#edf4ff;border:1px solid #b7cbe9;border-radius:13px;padding:18px 20px}.faq-item summary{cursor:pointer;font-weight:700;color:#0b2854;list-style:none;display:flex;justify-content:space-between}.faq-item summary:after{content:'+';font-size:22px;color:#d89c00}.faq-item p{color:#536b8e;line-height:1.6;font-size:14px;margin:14px 0 0}.newsletter{max-width:none;background:#071b3a;padding:60px max(24px,calc((100% - 1132px)/2));display:flex;justify-content:space-between;align-items:center;gap:35px;color:#fff}.newsletter h2{font-size:35px;margin:7px 0}.newsletter p{color:#b8cae4;margin:0}.newsletter-form{display:flex;background:#fff;border-radius:999px;padding:5px;min-width:min(100%,390px)}.newsletter-form input{border:0;outline:0;flex:1;border-radius:999px;padding:0 16px;font:14px 'Plus Jakarta Sans',sans-serif}.newsletter-form button{border:0;border-radius:999px;padding:12px 18px;background:#f5c62b;color:#0b2854;font-weight:700;cursor:pointer}.footer-main{max-width:1180px;margin:auto;padding:55px 24px 30px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}.footer-main p,.footer-main a{color:#59708f;font-size:14px;line-height:1.8}.footer-main h4{color:#0b2854;margin:0 0 10px}.footer-main a{display:block}.socials{display:flex;gap:10px;margin-top:14px}.socials a{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#0b2854;color:#f5c62b}@media(max-width:760px){.numbers,.guide-grid,.compare-grid,.faq-grid,.footer-main{grid-template-columns:1fr}.numbers{padding-top:36px;padding-bottom:36px}.compare-grid,.faq-grid{gap:25px}.newsletter{display:block}.newsletter-form{margin-top:22px}.footer-main{gap:20px}}
     .insights{max-width:none;padding:88px max(24px,calc((100% - 1132px)/2));background:#0b2854;color:#fff;position:relative;overflow:hidden}.insights:before{content:'';width:360px;height:360px;border:55px solid rgba(245,198,43,.12);position:absolute;left:-180px;bottom:-220px;border-radius:50%}.insights .section-top p{color:#b8cae4}.insights h2{color:#fff}.insights .eyebrow{color:#f5c62b}.insight-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:22px;position:relative;z-index:1}.chart-card{padding:25px;border-radius:20px;background:#113666;border:1px solid rgba(255,255,255,.1)}.chart-card h3{margin:0;font-size:16px}.chart-card small{color:#b8cae4;display:block;margin:5px 0 20px}.chart-wrap{height:270px;position:relative}.mini-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}.mini-stat{background:#17457c;border-radius:14px;padding:18px}.mini-stat b{font-size:24px;color:#f5c62b;display:block}.mini-stat span{font-size:12px;color:#c9d8ec}.service-band{padding:0 24px 92px;max-width:1180px}.service-box{display:grid;grid-template-columns:1fr 1.2fr;gap:35px;padding:40px;border-radius:24px;background:#f5c62b;color:#0b2854;align-items:center}.service-box h2{margin:7px 0;font-size:38px}.service-points{display:grid;grid-template-columns:1fr 1fr;gap:16px}.service-point{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:700}.service-point i{display:grid;place-items:center;flex:0 0 39px;width:39px;height:39px;background:#0b2854;color:#f5c62b;border-radius:12px}@media(max-width:760px){.insight-grid,.service-box{grid-template-columns:1fr}.service-points{grid-template-columns:1fr}.service-box{padding:28px}.service-box h2{font-size:32px}}
     /* Layout refinement & responsive safeguards */
     body{overflow-x:hidden}img{display:block;max-width:100%}.button{gap:9px;white-space:nowrap}.hero-actions{align-items:center}.section-top h2,.compare h2,.faq h2{max-width:650px}.section-top{align-items:flex-end}.numbers{margin-top:0}.sleep-guide{padding-top:92px}.compare{margin-top:0}.faq{padding-bottom:65px}.newsletter{margin-top:0}.service-band{padding-top:92px}.insights{margin-top:0}.profile-picker{padding-top:45px;padding-bottom:92px}.profile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.profile-card{border-radius:19px;padding:27px;background:#eaf3ff;border:1px solid #bcd0ed;transition:.25s transform,.25s box-shadow}.profile-card:hover{transform:translateY(-5px);box-shadow:0 15px 25px rgba(16,47,97,.14)}.profile-card i{font-size:24px;color:#0b2854;background:#f5c62b;padding:13px;border-radius:12px}.profile-card h3{color:#0b2854;margin:18px 0 8px}.profile-card p{color:#526d91;margin:0;line-height:1.6;font-size:14px}.profile-card a{display:inline-block;color:#0b2854;font-weight:700;font-size:14px;margin-top:18px}.profile-card a i{background:transparent;padding:0;font-size:13px;color:#d89c00;margin-left:5px}@media(max-width:760px){body{font-size:15px}.announcement{font-size:11px;padding:9px 12px}.links{display:none}nav{padding:0 18px;gap:10px}.logo{font-size:25px}.nav-cta{padding:10px 13px;font-size:12px}.hero{padding:32px 20px 55px;gap:36px}.hero h1{font-size:43px;letter-spacing:-1.5px}.hero p{font-size:15px}.hero-actions{gap:10px}.button{padding:12px 16px;font-size:13px}.hero-visual{min-height:350px;border-radius:25px;box-shadow:10px 11px 0 #f8c529}.floating{font-size:11px;padding:11px 12px}.rating{top:18px;left:16px}.delivery{right:14px;bottom:16px}.trust{padding:18px 20px;gap:10px;font-size:12px}.trust span{width:100%}section{padding:60px 20px}.section-top{margin-bottom:25px;gap:10px}.section-top h2,h2{font-size:34px;letter-spacing:-.7px}.section-top p{font-size:14px}.numbers{grid-template-columns:1fr 1fr;padding:30px 20px;gap:22px}.number b{font-size:34px}.number span{font-size:11px}.products{gap:16px}.product-art{height:225px}.card-body{padding:17px}.sleep-guide{padding-top:60px}.guide-grid{gap:14px}.guide-card{min-height:190px;padding:23px}.guide-card h3{margin-top:28px}.benefits{padding:60px 20px}.benefit-grid{gap:28px}.gallery{padding-top:20px}.gallery-grid{gap:12px}.review-strip{padding:55px 20px}.review-grid{gap:14px}.review{padding:20px}.compare{padding:60px 20px}.comparison-card{padding:18px;box-shadow:8px 9px 0 #f5c62b}.compare-row{grid-template-columns:1.25fr .85fr .85fr;font-size:12px;gap:5px}.faq{padding-top:60px}.faq-item{padding:16px}.faq-item summary{font-size:14px}.insights{padding:60px 20px}.chart-card{padding:18px}.chart-wrap{height:235px}.mini-stat{padding:14px}.service-band{padding:60px 20px}.newsletter{padding:45px 20px}.newsletter h2{font-size:30px}.newsletter-form{min-width:0;width:100%}.newsletter-form input{min-width:0}.profile-grid{grid-template-columns:1fr;gap:14px}.profile-picker{padding-top:30px;padding-bottom:60px}footer{padding:25px 20px}}
@@ -54,47 +55,431 @@
     .review-strip{background:#d6e5fa}.review{background:#f9fcff;border:1px solid #b9cde9;box-shadow:0 8px 18px rgba(8,31,69,.08)}.review:first-child{background:var(--yellow);border-color:var(--yellow)}.compare{background:linear-gradient(130deg,#c9dcf5,#e7f1ff)}.comparison-card{background:linear-gradient(145deg,#09214b,#154a8e)}.faq-item{background:rgba(255,255,255,.65);transition:.2s}.faq-item[open]{background:#fff;border-color:#87a9d9;box-shadow:0 8px 18px rgba(8,31,69,.08)}
     .insights{background:radial-gradient(circle at 84% 10%,#245da7 0%,#0b2854 42%,#061731 100%)}.chart-card{background:rgba(255,255,255,.08);backdrop-filter:blur(7px)}.service-box{box-shadow:0 17px 0 #0b2854}.profile-card{background:rgba(245,250,255,.8)}.profile-card:nth-child(2){background:#f9d557}.profile-card:nth-child(2) i{background:#0b2854;color:#f9d557}.newsletter{background:linear-gradient(90deg,#061731,#0d336b)}
     footer{border-top:0;background:rgba(214,229,250,.58);max-width:none;padding:28px max(24px,calc((100% - 1132px)/2))}@media(max-width:760px){nav{padding:0 18px}.hero{min-height:auto}.hero h1::after{margin-top:18px;width:58px;height:5px}.numbers:after{background-size:12px 12px}.product-art:after{opacity:1;transform:none}.service-box{box-shadow:8px 9px 0 #0b2854}.review:first-child{background:var(--yellow)}}
+    /* Final brand palette: blue #314C86, yellow #F7AE31, cream #EFE9D0 */
+    :root{
+      --ink:#263552;
+      --forest:#314c86;
+      --sage:#efe9d0;
+      --cream:#f8f5e9;
+      --peach:#f7ae31;
+      --accent:#f7ae31;
+      --line:#d9d4c3;
+      --navy:#314c86;
+      --blue:#314c86;
+      --sky:#f3eedb;
+      --yellow:#f7ae31;
+      --yellow-deep:#d78916;
+    }
+    body{background:linear-gradient(135deg,#f8f5e9 0%,#efe9d0 58%,#f7ae3140 160%);color:var(--ink)}
+    nav{background:rgba(248,245,233,.86);border-bottom-color:rgba(49,76,134,.12)}
+    .announcement{background:linear-gradient(90deg,#263b69,#314c86,#263b69)}
+    .links a{color:#314c86}.links a:hover{color:#d78916}
+    .nav-cta,.button{background:#314c86;border-color:#314c86;box-shadow:0 10px 22px rgba(49,76,134,.18)}
+    .nav-cta:hover,.button:hover{background:#f7ae31;border-color:#f7ae31;color:#263552}
+    .button.light{color:#314c86;border-color:#314c86}.button.light:hover{background:#efe9d0}
+    .hero h1,.section-top h2,.card h3{color:#314c86}
+    .hero p,.section-top p{color:#53627a}
+    .hero-visual{background:#314c86;box-shadow:17px 18px 0 #f7ae31,0 20px 45px rgba(49,76,134,.2)}
+    .hero-visual:after{background:linear-gradient(90deg,rgba(38,59,105,.84),rgba(49,76,134,.08))}
+    .rating{color:#314c86}.delivery,.tag,.price span{color:#d78916}
+    .trust{background:#314c86;border-bottom-color:#f7ae31}.trust span:before{color:#f7ae31}
+    .card{background:#faf8ef;border-color:rgba(49,76,134,.12);box-shadow:0 13px 28px rgba(49,76,134,.11)}
+    .product-art:after{background:#f7ae31;color:#263552}.price{border-top-color:#d8d2bd}
+    .numbers{background:#f7ae31;color:#314c86}.number b{color:#314c86}
+    .sleep-guide{max-width:none;background:#fff;padding-left:max(24px,calc((100% - 1132px)/2));padding-right:max(24px,calc((100% - 1132px)/2))}
+    .guide-card{background:#314c86}.guide-card:nth-child(2){background:#f7ae31;color:#263552}.guide-card:nth-child(3){background:#46649c}
+    .benefits{background:linear-gradient(125deg,#263b69,#314c86)}
+    .icon{background:#f7ae31;color:#fff}.benefits .eyebrow{color:#f7ae31}
+    .review-strip{background:#efe9d0;border-color:#d9d1b5}
+    .review{background:#faf8ef;border-color:#ddd5bc}.review:first-child{background:#f7ae31;border-color:#f7ae31}
+    .stars,.review b{color:#314c86}.review p{color:#354564}
+    .compare{background:linear-gradient(130deg,#efe9d0,#faf8ef)}
+    .comparison-card{background:linear-gradient(145deg,#263b69,#314c86);box-shadow:14px 15px 0 #f7ae31}
+    .compare-row b:last-child,.check,.feature-list i{color:#f7ae31}
+    .faq-item{background:rgba(250,248,239,.8);border-color:#d8d1b9}.faq-item[open]{background:#faf8ef;border-color:#314c86}
+    .faq-item summary{color:#314c86}.faq-item summary:after{color:#d78916}
+    .insights{background:radial-gradient(circle at 84% 10%,#46649c 0%,#314c86 45%,#263b69 100%)}
+    .chart-card{background:rgba(38,59,105,.45)}.mini-stat{background:#46649c}.mini-stat b{color:#f7ae31}
+    .service-box,.cta-box{background:#f7ae31;color:#263552}.service-box{box-shadow:0 17px 0 #314c86}
+    .service-point i,.cta-box .button{background:#314c86;color:#fff}
+    .profile-card{background:rgba(250,248,239,.82);border-color:#d8d1b9}.profile-card:nth-child(2){background:#f7ae31}
+    .profile-card i{background:#f7ae31;color:#314c86}.profile-card:nth-child(2) i{background:#314c86;color:#f7ae31}
+    .newsletter{background:linear-gradient(90deg,#263b69,#314c86)}.newsletter-form button{background:#f7ae31;color:#263552}
+    footer{background:rgba(239,233,208,.72);color:#53627a}.footer-logo{color:#314c86}
+    @media(max-width:760px){.hero-visual{box-shadow:10px 11px 0 #f7ae31}.service-box{box-shadow:8px 9px 0 #314c86}}
+    /* Consistent section rhythm and clean color transitions */
+    body{background:#fff}
+    section{isolation:isolate}
+    .hero{background:linear-gradient(135deg,#f8f5e9 0%,#efe9d0 100%)}
+    #koleksi,.gallery,.cta,.faq,.service-band,.profile-picker{background:#fff}
+    .gallery{padding-top:92px}
+    .review-strip{background:#f6f1df}
+    .cta{padding-top:92px;padding-bottom:92px}
+    .sleep-guide{
+      padding-top:92px;
+      padding-bottom:92px;
+      background:#fff;
+      border:0;
+    }
+    .guide-grid{align-items:stretch}
+    .guide-card{
+      min-height:240px;
+      box-shadow:0 14px 30px rgba(49,76,134,.12);
+    }
+    .guide-card:nth-child(1){background:#314c86;color:#fff}
+    .guide-card:nth-child(2){background:#f7ae31;color:#263552;box-shadow:0 14px 30px rgba(215,137,22,.13)}
+    .guide-card:nth-child(3){background:#efe9d0;color:#314c86;border:1px solid #ded6bb}
+    .guide-card:nth-child(3) p{color:#53627a}
+    .compare{
+      margin:0;
+      padding-top:92px;
+      padding-bottom:92px;
+      background:#f6f1df;
+      border:0;
+    }
+    .comparison-card{box-shadow:10px 12px 0 #f7ae31}
+    .faq{padding-top:92px;padding-bottom:92px}
+    .newsletter{border:0}
+    .insights{margin:0;border:0}
+    .service-band{padding-top:92px;padding-bottom:92px;background:#fff}
+    .service-box{box-shadow:0 12px 0 #314c86}
+    .profile-picker{padding-top:92px;padding-bottom:92px}
+
+    /* Full-width sections and collision safeguards */
+    .hero{
+      width:100%;
+      max-width:none;
+      padding-left:max(24px,calc((100% - 1132px)/2));
+      padding-right:max(24px,calc((100% - 1132px)/2));
+    }
+    .hero h1{max-width:650px;font-size:clamp(48px,5vw,68px);line-height:1.08}
+    .hero>div,.hero-visual,.section-top>div,.insight-grid>*{min-width:0}
+    .insights .section-top h2{color:#fff}
+    .insights .section-top p{color:#efe9d0}
+    .insights .eyebrow{color:#f7ae31}
+    .insight-grid{align-items:stretch}
+    .chart-card{min-width:0;overflow:hidden;background:rgba(38,59,105,.58);border-color:rgba(239,233,208,.18)}
+    .chart-wrap,.chart-wrap canvas{min-width:0;max-width:100%}
+    .mini-stats{min-width:0}
+    .mini-stat{min-width:0}
+    .benefit-grid>*,.products>*,.gallery-grid>*,.review-grid>*,.guide-grid>*,.profile-grid>*{min-width:0}
+
+    /* More expressive testimonial cards */
+    .review-strip{background:linear-gradient(135deg,#f8f5e9,#efe9d0)}
+    .review-grid{align-items:stretch;gap:24px}
+    .review{
+      position:relative;
+      min-height:230px;
+      overflow:hidden;
+      padding:30px;
+      border:1px solid #ded6bb;
+      border-top:4px solid #f7ae31;
+      border-radius:20px;
+      background:#fff;
+      box-shadow:0 12px 28px rgba(49,76,134,.09);
+      transition:transform .25s ease,box-shadow .25s ease;
+    }
+    .review:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(49,76,134,.14)}
+    .review:before{
+      content:'“';
+      position:absolute;
+      right:18px;
+      top:-20px;
+      color:rgba(49,76,134,.08);
+      font-size:120px;
+      font-weight:800;
+      line-height:1;
+    }
+    .review:first-child{
+      border-color:#f7ae31;
+      background:linear-gradient(145deg,#f7ae31,#f9bd55);
+      color:#263552;
+      box-shadow:0 14px 30px rgba(215,137,22,.18);
+    }
+    .review:first-child:before{color:rgba(255,255,255,.24)}
+    .review .stars,.review p,.review b{position:relative;z-index:1}
+    .review .stars{margin-bottom:18px;color:#314c86;letter-spacing:2px}
+    .review p{margin:0 0 22px;color:#354564;line-height:1.7}
+    .review b{display:block;margin-top:auto;color:#314c86}
+    .review:first-child .stars,.review:first-child p,.review:first-child b{color:#fff}
+
+    /* White content on every yellow surface */
+    .nav-cta:hover,.button:hover{color:#fff}
+    .product-art:after{color:#fff}
+    .numbers,.number b,.number span{color:#fff}
+    .guide-card:nth-child(2),
+    .guide-card:nth-child(2) h3,
+    .guide-card:nth-child(2) p,
+    .guide-card:nth-child(2) i{color:#fff}
+    .cta-box,
+    .cta-box .eyebrow,
+    .cta-box h2,
+    .cta-box p{color:#fff}
+    .service-box,
+    .service-box h2,
+    .service-box .eyebrow,
+    .service-box .service-point{color:#fff!important}
+    .profile-card:nth-child(2),
+    .profile-card:nth-child(2) h3,
+    .profile-card:nth-child(2) p,
+    .profile-card:nth-child(2) a{color:#fff}
+    .profile-card:nth-child(2) a i{color:#fff}
+    .newsletter-form button{color:#fff}
+    .icon,.profile-card>i{color:#fff}
+    .numbers,.guide-card:nth-child(2),.review:first-child,.cta-box,.service-box,.profile-card:nth-child(2){text-shadow:0 1px 2px rgba(38,59,105,.22)}
+
+    /* White content on every blue surface */
+    .benefits,
+    .benefits .eyebrow,
+    .benefits h2,
+    .benefit-grid h3,
+    .benefit-grid p{color:#fff}
+    .guide-card:nth-child(1),
+    .guide-card:nth-child(1) h3,
+    .guide-card:nth-child(1) p,
+    .guide-card:nth-child(1) i{color:#fff}
+    .comparison-card,
+    .comparison-card .compare-row,
+    .comparison-card .check,
+    .comparison-card b,
+    .comparison-card span{color:#fff}
+    .insights,
+    .insights .eyebrow,
+    .insights .section-top h2,
+    .insights .section-top p,
+    .chart-card,
+    .chart-card h3,
+    .chart-card small,
+    .mini-stat b,
+    .mini-stat span{color:#fff}
+    .service-point i,.profile-card:nth-child(2)>i{color:#fff}
+    .footer-logo{display:flex;align-items:center;width:210px;height:auto}
+    .footer-logo img{display:block;width:100%;height:auto;mix-blend-mode:multiply}
+
+    /* Persistent social media shortcuts */
+    .floating-socials{
+      position:fixed;
+      z-index:80;
+      right:22px;
+      top:50%;
+      display:grid;
+      gap:12px;
+      transform:translateY(-50%);
+    }
+    .social-float{
+      position:relative;
+      display:grid;
+      place-items:center;
+      width:56px;
+      height:56px;
+      border:2px solid rgba(255,255,255,.75);
+      border-radius:18px;
+      color:#fff;
+      font-size:23px;
+      box-shadow:0 12px 28px rgba(38,59,105,.22);
+      transition:transform .25s ease,box-shadow .25s ease,border-radius .25s ease;
+    }
+    .social-float:hover{transform:translateX(-5px) scale(1.06);border-radius:50%;box-shadow:0 16px 34px rgba(38,59,105,.3)}
+    .social-float:focus-visible{outline:3px solid #f7ae31;outline-offset:3px}
+    .social-float:after{
+      content:attr(data-label);
+      position:absolute;
+      right:68px;
+      padding:8px 12px;
+      border-radius:9px;
+      background:#263b69;
+      color:#fff;
+      font-size:11px;
+      font-weight:700;
+      white-space:nowrap;
+      pointer-events:none;
+      opacity:0;
+      transform:translateX(8px);
+      transition:opacity .2s ease,transform .2s ease;
+    }
+    .social-float:hover:after{opacity:1;transform:none}
+    .social-float.whatsapp{background:#25d366}
+    .social-float.instagram{background:linear-gradient(135deg,#833ab4,#e1306c 52%,#f7ae31)}
+    .social-float.tiktok{background:#111;color:#fff}
+    .social-float.whatsapp:before{
+      content:'';
+      position:absolute;
+      inset:-5px;
+      z-index:-1;
+      border:2px solid rgba(37,211,102,.4);
+      border-radius:22px;
+      animation:socialPulse 2.2s ease-out infinite;
+    }
+    @keyframes socialPulse{70%,100%{transform:scale(1.18);opacity:0}}
+    @media(prefers-reduced-motion:reduce){.social-float,.social-float:after{transition:none}.social-float.whatsapp:before{animation:none}}
+
+    /* Store location */
+    .location-section{
+      width:100%;
+      max-width:none;
+      padding:92px max(24px,calc((100% - 1132px)/2));
+      background:#fff;
+    }
+    .location-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:42px;align-items:center}
+    .location-copy{min-width:0}
+    .location-copy h2{color:#314c86}
+    .location-copy p{max-width:430px;margin:0 0 26px;color:#53627a;line-height:1.75}
+    .location-detail{display:flex;align-items:flex-start;gap:14px;margin:24px 0;padding:18px;border-radius:16px;background:#f6f1df;color:#314c86}
+    .location-detail i{display:grid;place-items:center;flex:0 0 42px;width:42px;height:42px;border-radius:12px;background:#314c86;color:#fff}
+    .location-detail b{display:block;margin-bottom:4px;font-size:14px}.location-detail span{color:#66738a;font-size:12px;line-height:1.5}
+    .map-card{min-width:0;overflow:hidden;border:1px solid #ded6bb;border-radius:24px;background:#fff;box-shadow:0 18px 45px rgba(49,76,134,.14)}
+    .map-card-head{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 22px;background:#314c86;color:#fff}
+    .map-card-head b{font-size:14px}.map-card-head span{font-size:11px;opacity:.86}
+    .map-card iframe{display:block;width:100%;height:410px;border:0}
+    .map-link{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 21px;border-radius:999px;background:#314c86;color:#fff;font-size:13px;font-weight:800;box-shadow:0 10px 22px rgba(49,76,134,.17);transition:.25s}
+    .map-link:hover{transform:translateY(-3px);background:#f7ae31;color:#fff}
+
+    /* Mobile layout refinement */
+    @media(max-width:760px){
+      nav{height:72px;padding:0 18px;gap:12px}
+      .logo{width:min(43vw,180px);height:54px;flex:0 1 auto}
+      .logo img{width:100%;height:auto}
+      .nav-cta{flex:0 0 auto;padding:10px 15px;font-size:11px;box-shadow:0 7px 16px rgba(49,76,134,.16)}
+      .hero{padding:44px 20px 62px;gap:38px}
+      .hero h1{max-width:620px;margin:10px 0 20px;font-size:clamp(38px,8.7vw,48px);line-height:1.14;letter-spacing:-1.7px;text-wrap:balance}
+      .hero h1::after{width:68px;height:5px;margin-top:20px}
+      .hero p{max-width:610px;font-size:15px;line-height:1.75}
+      .hero-actions{margin-top:26px}
+      .hero-visual{min-height:350px;margin-inline:4px;border-radius:24px;box-shadow:9px 10px 0 #f7ae31}
+      .hero-visual:before{right:14px;top:14px;font-size:8px}
+      .floating{padding:11px 13px}
+      .rating{top:16px;left:14px}.delivery{right:12px;bottom:14px}
+      .trust{padding:16px 20px}.trust span{line-height:1.5}
+      section{padding:58px 20px}
+      .gallery,.cta,.sleep-guide,.compare,.faq,.service-band,.profile-picker{padding:58px 20px}
+      .section-top h2,h2{font-size:clamp(30px,8vw,37px);line-height:1.17;text-wrap:balance}
+      .products{grid-template-columns:1fr}.product-art{height:230px}
+      .benefit-grid,.gallery-grid,.review-grid,.guide-grid,.compare-grid,.faq-grid,.profile-grid{grid-template-columns:1fr}
+      .review{min-height:0;padding:24px}
+      .benefits,.review-strip,.compare,.insights,.newsletter{padding-left:20px;padding-right:20px}
+      .numbers{grid-template-columns:1fr 1fr;padding:28px 20px;gap:20px}
+      .number b{font-size:32px}.number span{font-size:10px;line-height:1.4}
+      .comparison-card{overflow-x:auto}
+      .newsletter-form{width:100%;min-width:0}
+      .floating-socials{
+        top:52%;
+        right:4px;
+        bottom:auto;
+        left:auto;
+        display:grid!important;
+        gap:6px;
+        padding:0;
+        border:0;
+        background:transparent;
+        box-shadow:none;
+        backdrop-filter:none;
+        visibility:visible;
+        opacity:1;
+        transform:translateY(-50%);
+      }
+      .social-float{width:40px;height:40px;border-width:1px;border-radius:13px;font-size:18px;box-shadow:0 8px 18px rgba(38,59,105,.2)}
+      .social-float:after{display:none}
+      .social-float.whatsapp:before{display:none}
+      .cta-box h2,.cta-box p{max-width:calc(100% - 42px);margin-left:auto;margin-right:auto}
+      .location-section{padding:58px 20px}
+      .location-grid{grid-template-columns:1fr;gap:28px}
+      .map-card iframe{height:340px}
+    }
+    @media(max-width:480px){
+      .announcement{padding:8px 10px;font-size:9px;letter-spacing:.025em}
+      nav{height:66px;padding:0 14px;gap:8px}
+      .logo{width:min(49vw,164px);height:48px}
+      .nav-cta{min-width:102px;padding:9px 12px;font-size:0}
+      .nav-cta:after{content:'Konsultasi';font-size:10px}
+      .hero{padding:38px 17px 54px}
+      .hero h1{font-size:clamp(35px,10.7vw,43px);line-height:1.12;letter-spacing:-1.3px}
+      .hero p{font-size:14px;line-height:1.72}
+      .hero-actions{display:grid;grid-template-columns:1fr;gap:10px}
+      .hero-actions .button{width:100%;min-height:48px}
+      .hero-visual{min-height:300px;margin-top:4px}
+      .floating b{font-size:17px}
+      .delivery{right:8px;bottom:10px}
+      .trust{padding:15px 17px;font-size:11px}
+      section{padding:52px 17px}
+      .gallery,.cta,.sleep-guide,.compare,.faq,.service-band,.profile-picker{padding:52px 17px}
+      .cta-box{padding:42px 18px}
+      .newsletter{padding-top:42px;padding-bottom:42px}
+      .newsletter-form{display:grid;border-radius:18px;padding:6px}
+      .newsletter-form input{min-height:44px;padding:0 13px}
+      .newsletter-form button{min-height:42px}
+      .review{padding:22px}
+      .social-float{width:38px;height:38px;border-radius:12px;font-size:17px}
+      .location-section{padding:52px 17px}
+      .map-card-head{align-items:flex-start;flex-direction:column;padding:16px 18px}
+      .map-card iframe{height:300px}
+      footer{padding-left:17px;padding-right:17px}
+    }
   </style>
 </head>
 <body>
   <div class="announcement">GRATIS ONGKIR JAWA TIMUR • GARANSI HINGGA 10 TAHUN</div>
-  <nav><a class="logo" href="#beranda">sakha<span>foam</span></a><div class="links"><a href="#koleksi">Koleksi</a><a href="#tentang">Keunggulan</a><a href="#pesan">Pesan</a></div><a class="nav-cta" href="#pesan">Konsultasi Gratis</a></nav>
+  <nav><a class="logo" href="#beranda" aria-label="Sakha Foam"><img src="s3.png" alt="Sakha Foam" /></a><div class="links"><a href="#koleksi">Koleksi</a><a href="#tentang">Keunggulan</a><a href="#pesan">Pesan</a></div><a class="nav-cta" href="#pesan">Konsultasi Gratis</a></nav>
   <main id="beranda">
-    <section class="hero"><div><div class="eyebrow">Istirahat yang berkualitas</div><h1>Kasur nyaman untuk setiap mimpi indah.</h1><p>Temukan kenyamanan tidur yang dibuat khusus untuk menemani hari-hari terbaik Anda. Material premium, dukungan optimal, dan desain yang menenangkan.</p><div class="hero-actions"><a class="button" href="#koleksi">Lihat Koleksi <i class="fa-solid fa-arrow-right"></i></a><a class="button light" href="#tentang">Kenapa Sakha Foam?</a></div></div><div class="hero-visual"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1100&q=85" alt="Kamar tidur modern yang nyaman" /><div class="floating rating"><b><i class="fa-solid fa-star"></i> 4.9/5</b>Ribuan tidur lebih nyenyak</div><div class="floating delivery"><i class="fa-solid fa-truck-fast"></i> Siap kirim hari ini</div></div></section>
+    <section class="hero"><div>
+      <!-- <div class="eyebrow">Istirahat yang berkualitas</div> -->
+      <h1>Kasur Nyaman Untuk Setiap Mimpi Indah.</h1><p>Temukan kenyamanan tidur yang dibuat khusus untuk menemani hari-hari terbaik Anda. Material premium, dukungan optimal, dan desain yang menenangkan.</p><div class="hero-actions"><a class="button" href="#koleksi">Lihat Koleksi <i class="fa-solid fa-arrow-right"></i></a><a class="button light" href="#tentang">Kenapa Sakha Foam?</a></div></div><div class="hero-visual"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1100&q=85" alt="Kamar tidur modern yang nyaman" /><div class="floating rating"><b><i class="fa-solid fa-star"></i> 4.9/5</b>Ribuan tidur lebih nyenyak</div><div class="floating delivery"><i class="fa-solid fa-truck-fast"></i> Siap kirim hari ini</div></div></section>
     <div class="trust"><span>100 malam trial</span><span>Garansi sampai 10 tahun</span><span>Material bersertifikat</span><span>Pengiriman aman</span></div>
-    <section id="koleksi"><div class="section-top"><div><div class="eyebrow">Pilihan terfavorit</div><h2>Temukan kasur yang pas</h2></div><p>Dirancang dengan tingkat kenyamanan berbeda agar tidur Anda terasa lebih personal.</p></div><div class="products"><article class="card"><div class="product-art"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="Sakha Cloud" /></div><div class="card-body"><div class="tag">Best seller</div><h3>Sakha Cloud</h3><div class="price">Mulai Rp1.299.000 <span>→</span></div></div></article><article class="card"><div class="product-art green"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="Sakha Ortho" /></div><div class="card-body"><div class="tag">Support maksimal</div><h3>Sakha Ortho</h3><div class="price">Mulai Rp1.799.000 <span>→</span></div></div></article><article class="card"><div class="product-art orange"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Sakha Breeze" /></div><div class="card-body"><div class="tag">Sejuk sepanjang malam</div><h3>Sakha Breeze</h3><div class="price">Mulai Rp2.199.000 <span>→</span></div></div></article></div></section>
+    <section id="koleksi"><div class="section-top"><div><div class="eyebrow">Pilihan terfavorit</div><h2>Temukan kasur yang pas</h2>
+    <!-- </div><p>Dirancang dengan tingkat kenyamanan berbeda agar tidur Anda terasa lebih personal.</p></div> -->
+    <div class="products"><article class="card"><div class="product-art"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="Sakha Cloud" /></div><div class="card-body"><div class="tag">Best seller</div><h3>Sakha Cloud</h3><div class="price">Mulai Rp1.299.000 <span>→</span></div></div></article><article class="card"><div class="product-art green"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="Sakha Ortho" /></div><div class="card-body"><div class="tag">Support maksimal</div><h3>Sakha Ortho</h3><div class="price">Mulai Rp1.799.000 <span>→</span></div></div></article><article class="card"><div class="product-art orange"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Sakha Breeze" /></div><div class="card-body"><div class="tag">Sejuk sepanjang malam</div><h3>Sakha Breeze</h3><div class="price">Mulai Rp2.199.000 <span>→</span></div></div></article></div></section>
     <section class="benefits" id="tentang"><div class="eyebrow">Dibuat untuk tubuh Anda</div><h2>Bangun lebih segar,<br>jalani hari lebih siap.</h2><div class="benefit-grid"><div><div class="icon"><i class="fa-solid fa-bed"></i></div><h3>Foam adaptif</h3><p>Menyesuaikan kontur tubuh untuk membantu menjaga posisi tidur tetap nyaman.</p></div><div><div class="icon"><i class="fa-solid fa-wind"></i></div><h3>Sirkulasi udara baik</h3><p>Struktur berpori membantu kasur terasa sejuk dan segar sepanjang malam.</p></div><div><div class="icon"><i class="fa-solid fa-shield-heart"></i></div><h3>Aman untuk keluarga</h3><p>Bahan pilihan yang lembut, minim bau, dan nyaman untuk penggunaan sehari-hari.</p></div></div></section>
-    <section class="gallery"><div class="section-top"><div><div class="eyebrow">Inspirasi ruang istirahat</div><h2>Nyaman menyatu dengan ruang Anda</h2></div><p>Desain kasur yang mudah melengkapi berbagai gaya kamar tidur modern.</p></div><div class="gallery-grid"><div class="gallery-card"><img src="https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1000&q=80" alt="Kamar tidur nyaman" /><span>Sudut tidur yang menenangkan</span></div><div class="gallery-card"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=700&q=80" alt="Detail kamar tidur" /><span>Material terpilih</span></div><div class="gallery-card"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80" alt="Interior modern" /><span>Gaya kontemporer</span></div><div class="gallery-card"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=700&q=80" alt="Tempat tidur modern" /><span>Nyaman setiap malam</span></div><div class="gallery-card"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=700&q=80" alt="Kamar tidur elegan" /><span>Ruang untuk beristirahat</span></div></div></section>
+    <section class="gallery"><div class="section-top"><div><div class="eyebrow">Inspirasi ruang istirahat</div><h2>Nyaman menyatu dengan ruang Anda</h2>
+    <!-- </div><p>Desain kasur yang mudah melengkapi berbagai gaya kamar tidur modern.</p></div -->
+    ><div class="gallery-grid"><div class="gallery-card"><img src="https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1000&q=80" alt="Kamar tidur nyaman" /><span>Sudut tidur yang menenangkan</span></div><div class="gallery-card"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=700&q=80" alt="Detail kamar tidur" /><span>Material terpilih</span></div><div class="gallery-card"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80" alt="Interior modern" /><span>Gaya kontemporer</span></div><div class="gallery-card"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=700&q=80" alt="Tempat tidur modern" /><span>Nyaman setiap malam</span></div><div class="gallery-card"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=700&q=80" alt="Kamar tidur elegan" /><span>Ruang untuk beristirahat</span></div></div></section>
     <section class="review-strip"><div class="section-top"><div><div class="eyebrow">Cerita pelanggan</div><h2>Dipilih untuk tidur yang lebih baik</h2></div></div><div class="review-grid"><article class="review"><div class="stars">★★★★★</div><p>“Empuknya pas dan badan terasa jauh lebih segar saat bangun. Pengirimannya juga sangat rapi.”</p><b>— Nadya P., Jakarta</b></article><article class="review"><div class="stars">★★★★★</div><p>“Desainnya premium, kualitasnya terasa. Sakha Ortho membantu posisi tidur saya jadi lebih nyaman.”</p><b>— Rafi A., Tangerang</b></article><article class="review"><div class="stars">★★★★★</div><p>“Pelayanannya informatif dari awal hingga barang sampai. Sangat direkomendasikan!”</p><b>— Sinta M., Depok</b></article></div></section>
-    <section class="cta" id="pesan"><div class="cta-box"><div class="eyebrow">Tidur lebih baik dimulai di sini</div><h2>Masih bingung memilih kasur yang tepat?</h2><p>Tim Sakha Foam siap membantu menemukan ukuran dan tipe kasur sesuai kebutuhan Anda.</p><a class="button" href="https://wa.me/6281234567890" target="_blank" rel="noopener">Chat via WhatsApp</a></div></section>
+    <section class="cta" id="pesan"><div class="cta-box"><div class="eyebrow">Tidur lebih baik dimulai di sini</div><h2>Masih bingung memilih kasur yang tepat?</h2><p>Tim Sakha Foam siap membantu menemukan ukuran dan tipe kasur sesuai kebutuhan Anda.</p><a class="button" href="https://wa.me/6289522146522" target="_blank" rel="noopener">Chat via WhatsApp</a></div></section>
     <div class="numbers"><div class="number"><b>10+</b><span>tahun garansi pilihan</span></div><div class="number"><b>4.9/5</b><span>rating dari pelanggan</span></div><div class="number"><b>100</b><span>malam masa trial</span></div><div class="number"><b>15K+</b><span>kasur menemani mimpi</span></div></div>
     <section class="sleep-guide"><div class="section-top"><div><div class="eyebrow">Panduan kenyamanan</div><h2>Memilih kasur tanpa ragu</h2></div><p>Tiga langkah sederhana untuk menemukan tingkat kenyamanan yang paling sesuai dengan Anda.</p></div><div class="guide-grid"><article class="guide-card"><span class="guide-no">01</span><i class="fa-solid fa-ruler-combined"></i><h3>Pilih ukuran</h3><p>Sesuaikan dengan luas kamar dan kebiasaan tidur Anda, dari single sampai king.</p></article><article class="guide-card"><span class="guide-no">02</span><i class="fa-solid fa-cloud"></i><h3>Tentukan feel</h3><p>Pilih soft, medium, atau firm untuk dukungan tubuh yang Anda butuhkan.</p></article><article class="guide-card"><span class="guide-no">03</span><i class="fa-solid fa-comment-dots"></i><h3>Konsultasi gratis</h3><p>Tim kami siap memberi rekomendasi personal sebelum Anda memutuskan.</p></article></div></section>
     <section class="compare"><div class="compare-grid"><div class="compare-text"><div class="eyebrow">Teknologi tidur Sakha</div><h2>Setiap lapisan punya alasan.</h2><p>Rasakan kombinasi foam responsif dan struktur penopang yang bekerja selaras dari malam hingga pagi.</p><div class="feature-list"><span><i class="fa-solid fa-circle-check"></i>Cover lembut yang mudah dilepas</span><span><i class="fa-solid fa-circle-check"></i>Lapisan comfort foam yang adaptif</span><span><i class="fa-solid fa-circle-check"></i>Base foam untuk stabilitas jangka panjang</span></div></div><div class="comparison-card"><div class="compare-row"><b>Fitur</b><b>Sakha Foam</b><b>Kasur biasa</b></div><div class="compare-row"><span>100 malam trial</span><b class="check">Tersedia</b><span>-</span></div><div class="compare-row"><span>Garansi hingga 10 tahun</span><b class="check">Tersedia</b><span>Terbatas</span></div><div class="compare-row"><span>Material breathable</span><b class="check">Tersedia</b><span>Standar</span></div><div class="compare-row"><span>Konsultasi personal</span><b class="check">Gratis</b><span>-</span></div></div></div></section>
     <section class="faq"><div class="faq-grid"><div><div class="eyebrow">Butuh bantuan?</div><h2>Pertanyaan yang sering ditanyakan</h2><p style="color:#405879;line-height:1.7">Masih ingin tahu lebih banyak? Tim kami siap membantu Anda memilih melalui WhatsApp.</p><a class="button" href="#pesan">Tanya Sekarang</a></div><div class="faq-list"><details class="faq-item" open><summary>Bagaimana cara memilih tingkat kenyamanan?</summary><p>Untuk penggunaan sehari-hari, tingkat medium adalah pilihan paling serbaguna. Konsultasikan kebutuhan Anda untuk rekomendasi yang lebih personal.</p></details><details class="faq-item"><summary>Apakah tersedia untuk semua ukuran?</summary><p>Tersedia ukuran single, super single, queen, king, dan ukuran khusus sesuai kebutuhan ruang Anda.</p></details><details class="faq-item"><summary>Berapa lama proses pengiriman?</summary><p>Pesanan Jawa Timur diproses 1–3 hari kerja. Pengiriman luar kota menyesuaikan wilayah tujuan.</p></details><details class="faq-item"><summary>Bagaimana ketentuan masa trial?</summary><p>Anda memiliki waktu hingga 100 malam untuk merasakan kenyamanan kasur di rumah.</p></details></div></div></section>
-    <section class="newsletter"><div><div class="eyebrow" style="color:#f5c62b">Sahabat tidur Anda</div><h2>Dapatkan inspirasi tidur lebih baik.</h2><p>Promo eksklusif, tips merawat kasur, dan kabar terbaru Sakha Foam.</p></div><form class="newsletter-form"><input type="email" aria-label="Alamat email" placeholder="Masukkan email Anda" /><button type="submit">Berlangganan</button></form></section>
     <section class="insights"><div class="section-top"><div><div class="eyebrow">Sakha insights</div><h2>Kenyamanan yang paling banyak dipilih</h2></div><p>Ringkasan tren pilihan pelanggan Sakha Foam dalam enam bulan terakhir.</p></div><div class="insight-grid"><article class="chart-card"><h3>Tren pembelian 2026</h3><small>Jumlah pesanan per bulan</small><div class="chart-wrap"><canvas id="salesChart"></canvas></div></article><article class="chart-card"><h3>Produk favorit</h3><small>Preferensi tipe kasur</small><div class="chart-wrap"><canvas id="productChart"></canvas></div><div class="mini-stats"><div class="mini-stat"><b>+38%</b><span>pertumbuhan pesanan</span></div><div class="mini-stat"><b>92%</b><span>pelanggan merekomendasikan</span></div></div></article></div></section>
     <section class="service-band"><div class="service-box"><div><div class="eyebrow" style="color:#0b2854">Pengalaman belanja Sakha</div><h2>Nyaman sejak memilih hingga tidur.</h2></div><div class="service-points"><div class="service-point"><i class="fa-solid fa-box-open"></i><span>Pengemasan rapi & aman</span></div><div class="service-point"><i class="fa-solid fa-headset"></i><span>Customer care setiap hari</span></div><div class="service-point"><i class="fa-solid fa-credit-card"></i><span>Pembayaran fleksibel</span></div><div class="service-point"><i class="fa-solid fa-house-circle-check"></i><span>Antar sampai ke rumah</span></div></div></div></section>
     <section class="profile-picker"><div class="section-top"><div><div class="eyebrow">Temukan match Anda</div><h2>Kasur yang mengikuti gaya tidur Anda</h2></div><p>Pilih berdasarkan kebutuhan utama agar keputusan belanja terasa lebih mudah dan personal.</p></div><div class="profile-grid"><article class="profile-card"><i class="fa-solid fa-feather"></i><h3>Suka tidur empuk</h3><p>Rasakan pelukan lembut dengan Sakha Cloud, ideal untuk Anda yang menyukai sensasi plush.</p><a href="#koleksi">Lihat Sakha Cloud <i class="fa-solid fa-arrow-right"></i></a></article><article class="profile-card"><i class="fa-solid fa-person"></i><h3>Butuh support ekstra</h3><p>Sakha Ortho memberi dukungan lebih stabil untuk membantu posisi tidur terasa lebih seimbang.</p><a href="#koleksi">Lihat Sakha Ortho <i class="fa-solid fa-arrow-right"></i></a></article><article class="profile-card"><i class="fa-solid fa-snowflake"></i><h3>Mudah merasa gerah</h3><p>Sakha Breeze dirancang dengan struktur sirkulasi udara untuk tidur yang lebih sejuk.</p><a href="#koleksi">Lihat Sakha Breeze <i class="fa-solid fa-arrow-right"></i></a></article></div></section>
+    <section class="location-section" id="lokasi">
+      <div class="location-grid">
+        <div class="location-copy">
+          <div class="eyebrow">Kunjungi kami</div>
+          <h2>Temukan lokasi Sakha Foam.</h2>
+          <p>Lihat lokasi toko secara langsung melalui peta dan gunakan petunjuk arah Google Maps untuk perjalanan yang lebih mudah.</p>
+          <div class="location-detail"><i class="fa-solid fa-location-dot"></i><div><b>Sakha Foam</b><span>Agen Resmi Kasur Busa Royal Foam</span></div></div>
+          <a class="map-link" href="https://maps.app.goo.gl/3DguqmZkGqndJ3Ue9" target="_blank" rel="noopener"><i class="fa-solid fa-diamond-turn-right"></i> Buka di Google Maps</a>
+        </div>
+        <div class="map-card">
+          <div class="map-card-head"><div><b>Lokasi Sakha Foam</b><br><span>Agen Resmi Kasur Busa Royal Foam</span></div><i class="fa-solid fa-map-location-dot"></i></div>
+          <iframe src="https://www.google.com/maps?q=-7.4315741,112.5924505&amp;z=16&amp;output=embed" title="Peta lokasi Sakha Foam" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer><div class="footer-logo">sakha<span>foam</span></div><div>© 2026 Sakha Foam. Tidur nyaman, setiap malam.</div></footer>
+  <div class="floating-socials" aria-label="Media sosial Sakha Foam">
+    <a class="social-float whatsapp" data-label="Chat WhatsApp" href="https://wa.me/6289522146522" target="_blank" rel="noopener" aria-label="Chat Sakha Foam melalui WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <a class="social-float instagram" data-label="Instagram" href="https://www.instagram.com/sakhafoam?utm_source=ig_web_button_share_sheet&amp;stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" aria-label="Kunjungi Instagram Sakha Foam"><i class="fa-brands fa-instagram"></i></a>
+    <a class="social-float tiktok" data-label="TikTok" href="https://www.tiktok.com/@sakhafoam?is_from_webapp=1&amp;sender_device=pc" target="_blank" rel="noopener" aria-label="Kunjungi TikTok Sakha Foam"><i class="fa-brands fa-tiktok"></i></a>
+  </div>
+  <footer><div class="footer-logo"><img src="s3.png" alt="Sakha Foam" /></div><div>© 2026 Sakha Foam. Tidur nyaman, setiap malam.</div></footer>
   <script>
-    const chartText = '#c9d8ec';
+    const chartText = '#ffffff';
     new Chart(document.getElementById('salesChart'), {
       type: 'line',
       data: {
         labels: ['Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep'],
         datasets: [{
           label: 'Pesanan', data: [180, 245, 218, 320, 386, 452],
-          borderColor: '#f5c62b', backgroundColor: 'rgba(245,198,43,.16)',
-          fill: true, tension: .42, pointRadius: 4, pointBackgroundColor: '#f5c62b', borderWidth: 3
+          borderColor: '#f7ae31', backgroundColor: 'rgba(247,174,49,.16)',
+          fill: true, tension: .42, pointRadius: 4, pointBackgroundColor: '#f7ae31', borderWidth: 3
         }]
       },
       options: { maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false }, ticks: { color: chartText } }, y: { beginAtZero: true, grid: { color: 'rgba(201,216,236,.16)' }, ticks: { color: chartText } } } }
     });
     new Chart(document.getElementById('productChart'), {
       type: 'doughnut',
-      data: { labels: ['Sakha Cloud', 'Sakha Ortho', 'Sakha Breeze'], datasets: [{ data: [46, 31, 23], backgroundColor: ['#f5c62b', '#76a5dc', '#d6e6fa'], borderColor: '#113666', borderWidth: 5, hoverOffset: 8 }] },
-      options: { maintainAspectRatio: false, cutout: '66%', plugins: { legend: { position: 'bottom', labels: { color: chartText, usePointStyle: true, padding: 16, font: { family: 'DM Sans' } } } } }
+      data: { labels: ['Sakha Cloud', 'Sakha Ortho', 'Sakha Breeze'], datasets: [{ data: [46, 31, 23], backgroundColor: ['#f7ae31', '#519378', '#efe9d0'], borderColor: '#263b69', borderWidth: 5, hoverOffset: 8 }] },
+      options: { maintainAspectRatio: false, cutout: '66%', plugins: { legend: { position: 'bottom', labels: { color: chartText, usePointStyle: true, padding: 16, font: { family: 'Plus Jakarta Sans' } } } } }
     });
   </script>
 </body>
