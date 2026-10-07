@@ -435,6 +435,7 @@
     .hero h1::after{transform-origin:left;animation:growBar .9s .6s cubic-bezier(.2,.7,.2,1) both}
     .hero-visual{display:flex;flex-direction:column;justify-content:center;padding:96px 9%;background:linear-gradient(160deg,#1d2f57,#314c86 60%,#46649c);animation:fadeUp .9s .2s cubic-bezier(.2,.7,.2,1) backwards;transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease-out}
     .hero-visual:after{display:none}
+    .hero-visual{min-height:500px}
     .aurora{position:absolute;border-radius:50%;filter:blur(50px);will-change:transform}
     .aurora.a1{left:-90px;bottom:-110px;width:300px;height:300px;background:#f7ae31;opacity:.5;animation:drift 13s ease-in-out infinite alternate}
     .aurora.a2{right:-70px;top:-60px;width:260px;height:260px;background:#7fa0e6;opacity:.55;animation:drift 17s ease-in-out infinite alternate-reverse}
@@ -517,7 +518,11 @@
     .reveal:not(.in){opacity:0;transform:translateY(30px)}
 
     @media(max-width:760px){
-      .hero-visual{min-height:0;padding:78px 16px}
+      .hero-visual{min-height:480px;margin-inline:0 9px;padding:78px 14px}
+      .hero-visual:before{display:none}
+      .layer-card{padding:14px}
+      .layer-row{gap:12px;padding:11px}
+      .floating-socials{top:auto;bottom:14px;right:10px;transform:none}
       .floating.rating{top:14px;left:14px}.floating.delivery{right:14px;bottom:14px}
       .trust.marquee{padding:16px 0}
       .marquee-group{gap:40px;padding-right:40px}
