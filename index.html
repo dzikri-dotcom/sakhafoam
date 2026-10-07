@@ -111,7 +111,7 @@
     body{background:#fff}
     section{isolation:isolate}
     .hero{background:linear-gradient(135deg,#f8f5e9 0%,#efe9d0 100%)}
-    #koleksi,.gallery,.cta,.faq,.service-band,.profile-picker{background:#fff}
+    #kenyamanan,.gallery,.cta,.faq,.service-band,.profile-picker{background:#fff}
     .gallery{padding-top:92px}
     .review-strip{background:#f6f1df}
     .cta{padding-top:92px;padding-bottom:92px}
@@ -414,32 +414,195 @@
       .map-card iframe{height:300px}
       footer{padding-left:17px;padding-right:17px}
     }
+
+    /* Motion & interaction layer */
+    @keyframes drift{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(40px,-30px,0) scale(1.12)}100%{transform:translate3d(-30px,35px,0) scale(.95)}}
+    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+    @keyframes growBar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+    @keyframes gradientShift{from{background-position:0% 50%}to{background-position:100% 50%}}
+    @keyframes marquee{to{transform:translateX(-33.3333%)}}
+    @keyframes shine{0%,60%{transform:translateX(-140%) skewX(-20deg)}100%{transform:translateX(320%) skewX(-20deg)}}
+    @keyframes dots{to{background-position:44px 44px}}
+
+    /* Hero */
+    .announcement{background-size:200% 100%;animation:gradientShift 8s linear infinite alternate}
+    .hero{overflow:hidden}
+    .hero:before{content:'';position:absolute;z-index:-1;left:-160px;top:-190px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(247,174,49,.34),transparent 65%);animation:drift 16s ease-in-out infinite alternate}
+    .hero h1,.hero p,.hero-actions{animation:fadeUp .9s cubic-bezier(.2,.7,.2,1) both}
+    .hero p{animation-delay:.12s}.hero-actions{animation-delay:.24s}
+    .hero h1::after{transform-origin:left;animation:growBar .9s .6s cubic-bezier(.2,.7,.2,1) both}
+    .hero-visual{display:flex;flex-direction:column;justify-content:center;padding:96px 9%;background:linear-gradient(160deg,#1d2f57,#314c86 60%,#46649c);animation:fadeUp .9s .2s cubic-bezier(.2,.7,.2,1) backwards;transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease-out}
+    .hero-visual:after{display:none}
+    .aurora{position:absolute;border-radius:50%;filter:blur(50px);will-change:transform}
+    .aurora.a1{left:-90px;bottom:-110px;width:300px;height:300px;background:#f7ae31;opacity:.5;animation:drift 13s ease-in-out infinite alternate}
+    .aurora.a2{right:-70px;top:-60px;width:260px;height:260px;background:#7fa0e6;opacity:.55;animation:drift 17s ease-in-out infinite alternate-reverse}
+    .layer-card{position:relative;z-index:1;padding:18px;border:1px solid rgba(255,255,255,.22);border-radius:22px;background:rgba(255,255,255,.1);backdrop-filter:blur(14px);color:#fff}
+    .layer-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:4px 8px 14px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    .layer-head b{padding:5px 10px;border-radius:999px;background:#f7ae31;letter-spacing:.04em}
+    .layer-row{display:flex;align-items:flex-start;gap:14px;width:100%;padding:13px;border:0;border-radius:15px;background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer;transition:background .35s,color .35s,box-shadow .35s}
+    .layer-row:focus-visible{outline:3px solid #f7ae31;outline-offset:2px}
+    .layer-row>i{display:grid;place-items:center;flex:0 0 40px;height:40px;border-radius:12px;background:rgba(255,255,255,.16);font-size:16px;transition:background .35s}
+    .layer-row span{min-width:0;padding-top:2px}
+    .layer-row b{display:block;font-size:15px;line-height:36px;transition:line-height .35s}
+    .layer-row small{display:block;max-height:0;overflow:hidden;font-size:13px;line-height:1.55;opacity:0;transition:max-height .45s,opacity .35s}
+    .layer-row.is-active{background:#fff;color:#263552;box-shadow:0 14px 28px rgba(15,25,50,.25)}
+    .layer-row.is-active>i{background:#f7ae31;color:#fff}
+    .layer-row.is-active b{line-height:22px}
+    .layer-row.is-active small{max-height:64px;color:#53627a;opacity:1}
+    .floating{z-index:2;animation:bob 5s ease-in-out infinite}.floating.delivery{animation-delay:-2.5s}
+    .floating.rating{top:20px;left:20px}.floating.rating b{display:inline;margin-right:6px;font-size:16px}
+    .floating.delivery{right:20px;bottom:20px}
+
+    /* Marquee */
+    .trust.marquee{display:block;overflow:hidden;padding:20px 0}
+    .marquee-track{display:flex;width:max-content;animation:marquee 40s linear infinite}
+    .trust.marquee:hover .marquee-track{animation-play-state:paused}
+    .marquee-group{display:flex;gap:64px;padding-right:64px}
+    .trust .marquee-group span{width:auto;white-space:nowrap}
+
+    /* Expanding showcase */
+    .showcase{display:flex;gap:16px;height:400px}
+    .panel{position:relative;flex:1;min-width:0;overflow:hidden;border-radius:22px;background:linear-gradient(150deg,#314c86,#263b69);box-shadow:0 14px 30px rgba(49,76,134,.14);cursor:pointer;transition:flex .65s cubic-bezier(.2,.7,.2,1)}
+    .panel:nth-child(2){background:linear-gradient(150deg,#46649c,#314c86)}
+    .panel:nth-child(3){background:linear-gradient(150deg,#263b69,#1d2f57)}
+    .panel.is-active{flex:3.2;cursor:default}
+    .panel:focus-visible{outline:3px solid #f7ae31;outline-offset:3px}
+    .panel:before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1.2px,transparent 1.6px);background-size:22px 22px;-webkit-mask-image:linear-gradient(200deg,#000,transparent 62%);mask-image:linear-gradient(200deg,#000,transparent 62%);animation:dots 9s linear infinite}
+    .panel:after{content:'';position:absolute;z-index:2;left:0;right:0;bottom:0;height:4px;background:#f7ae31;transform:scaleX(0);transform-origin:left}
+    .showcase.is-auto .panel.is-active:after{animation:growBar 4.5s linear}
+    .panel-mark{position:absolute;top:26px;right:24px;color:rgba(255,255,255,.14);font-size:76px;transition:font-size .65s cubic-bezier(.2,.7,.2,1),color .5s}
+    .panel.is-active .panel-mark{color:#f7ae31;font-size:140px}
+    .panel-body{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:26px;color:#fff}
+    .panel-no{display:grid;place-items:center;width:40px;height:40px;margin-bottom:14px;border:1px solid rgba(255,255,255,.6);border-radius:50%;font-size:13px;font-weight:700;transition:background .4s,border-color .4s}
+    .panel.is-active .panel-no{background:#f7ae31;border-color:#f7ae31}
+    .panel .tag{color:#f7ae31}
+    .panel h3{margin:6px 0 0;color:#fff;font-size:21px}
+    .panel.is-active h3{font-size:28px}
+    .panel p{max-width:440px;max-height:0;margin:0;overflow:hidden;color:#e6ecf8;font-size:15px;line-height:1.65;opacity:0;transition:max-height .5s,opacity .4s,margin .4s}
+    .panel.is-active p{max-height:100px;margin-top:10px;opacity:1}
+
+    /* Bento with cursor spotlight */
+    .bento{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:18px}
+    .bento-card{position:relative;display:flex;flex-direction:column;min-width:0;min-height:220px;padding:28px;overflow:hidden;border:1px solid #ded6bb;border-radius:20px;background:#faf8ef;transition:transform .3s,box-shadow .3s,border-color .3s}
+    .bento-card:before{content:'';position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(247,174,49,.3),transparent 65%);opacity:0;transition:opacity .3s;pointer-events:none}
+    .bento-card:hover{transform:translateY(-5px);border-color:#f7ae31;box-shadow:0 18px 36px rgba(49,76,134,.14)}
+    .bento-card:hover:before{opacity:1}
+    .bento-card>*{position:relative}
+    .bento-card>i{display:grid;place-items:center;width:48px;height:48px;border-radius:14px;background:#314c86;color:#fff;font-size:19px;transition:transform .3s,background .3s}
+    .bento-card:hover>i{background:#f7ae31;transform:rotate(-8deg) scale(1.08)}
+    .bento-card h3{margin:auto 0 8px;padding-top:26px;color:#314c86;font-size:19px}
+    .bento-card p{margin:0;color:#53627a;font-size:14px;line-height:1.6}
+    .bento-card.big{grid-row:span 2;justify-content:flex-end;border-color:transparent;background:linear-gradient(150deg,#314c86,#1d2f57)}
+    .bento-card.big .ring{position:absolute;top:-70px;right:-70px;width:260px;height:260px;border:2px dashed rgba(255,255,255,.28);border-radius:50%;animation:spin 40s linear infinite}
+    .bento-card.big b{color:#f7ae31;font-size:clamp(84px,11vw,150px);font-weight:800;line-height:.9;letter-spacing:-4px}
+    .bento-card.big h3{margin:12px 0 8px;padding:0;color:#fff;font-size:26px}
+    .bento-card.big p{max-width:340px;color:#d9e2f3}
+
+    /* Ambient motion */
+    .benefits:after{animation:drift 14s ease-in-out infinite alternate}
+    .insights:before{animation:drift 18s ease-in-out infinite alternate}
+    .benefit-grid .icon,.guide-no{animation:bob 4.5s ease-in-out infinite}
+    .benefit-grid>div:nth-child(2) .icon,.guide-card:nth-child(2) .guide-no{animation-delay:-1.5s}
+    .benefit-grid>div:nth-child(3) .icon,.guide-card:nth-child(3) .guide-no{animation-delay:-3s}
+    .cta-box:before{line-height:1;animation:spin 26s linear infinite}
+    .button:not(.light){position:relative;overflow:hidden}
+    .button:not(.light):after{content:'';position:absolute;top:0;bottom:0;left:0;width:34%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.38),transparent);animation:shine 4.5s ease-in-out infinite;pointer-events:none}
+    .numbers{grid-template-columns:repeat(3,1fr)}
+    .number b{font-variant-numeric:tabular-nums}
+
+    /* Scroll reveal (classes are added by script, so content stays visible without it) */
+    .reveal{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)!important}
+    .reveal:not(.in){opacity:0;transform:translateY(30px)}
+
+    @media(max-width:760px){
+      .hero-visual{min-height:0;padding:78px 16px}
+      .floating.rating{top:14px;left:14px}.floating.delivery{right:14px;bottom:14px}
+      .trust.marquee{padding:16px 0}
+      .marquee-group{gap:40px;padding-right:40px}
+      .showcase{flex-direction:column;gap:12px;height:540px}
+      .panel-body{padding:18px}
+      .panel:not(.is-active) .panel-no{display:none}
+      .panel-mark{top:16px;right:16px;font-size:48px}
+      .panel.is-active .panel-mark{font-size:96px}
+      .panel.is-active h3{font-size:23px}
+      .bento{grid-template-columns:1fr;gap:14px}
+      .bento-card{min-height:0;padding:22px}
+      .bento-card.big{grid-row:auto;min-height:300px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *,*:before,*:after{animation:none!important}
+    }
   </style>
 </head>
 <body>
   <div class="announcement">GRATIS ONGKIR JAWA TIMUR • GARANSI HINGGA 10 TAHUN</div>
-  <nav><a class="logo" href="#beranda" aria-label="Sakha Foam"><img src="s3.png" alt="Sakha Foam" /></a><div class="links"><a href="#koleksi">Koleksi</a><a href="#tentang">Keunggulan</a><a href="#pesan">Pesan</a></div><a class="nav-cta" href="#pesan">Konsultasi Gratis</a></nav>
+  <nav><a class="logo" href="#beranda" aria-label="Sakha Foam"><img src="s3.png" alt="Sakha Foam" /></a><div class="links"><a href="#kenyamanan">Kenyamanan</a><a href="#tentang">Keunggulan</a><a href="#pesan">Pesan</a></div><a class="nav-cta" href="#pesan">Konsultasi Gratis</a></nav>
   <main id="beranda">
-    <section class="hero"><div>
-      <!-- <div class="eyebrow">Istirahat yang berkualitas</div> -->
-      <h1>Kasur Nyaman Untuk Setiap Mimpi Indah.</h1><p>Temukan kenyamanan tidur yang dibuat khusus untuk menemani hari-hari terbaik Anda. Material premium, dukungan optimal, dan desain yang menenangkan.</p><div class="hero-actions"><a class="button" href="#koleksi">Lihat Koleksi <i class="fa-solid fa-arrow-right"></i></a><a class="button light" href="#tentang">Kenapa Sakha Foam?</a></div></div><div class="hero-visual"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1100&q=85" alt="Kamar tidur modern yang nyaman" /><div class="floating rating"><b><i class="fa-solid fa-star"></i> 4.9/5</b>Ribuan tidur lebih nyenyak</div><div class="floating delivery"><i class="fa-solid fa-truck-fast"></i> Siap kirim hari ini</div></div></section>
-    <div class="trust"><span>100 malam trial</span><span>Garansi sampai 10 tahun</span><span>Material bersertifikat</span><span>Pengiriman aman</span></div>
-    <section id="koleksi"><div class="section-top"><div><div class="eyebrow">Pilihan terfavorit</div><h2>Temukan kasur yang pas</h2>
-    <!-- </div><p>Dirancang dengan tingkat kenyamanan berbeda agar tidur Anda terasa lebih personal.</p></div> -->
-    <div class="products"><article class="card"><div class="product-art"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="Sakha Cloud" /></div><div class="card-body"><div class="tag">Best seller</div><h3>Sakha Cloud</h3><div class="price">Mulai Rp1.299.000 <span>→</span></div></div></article><article class="card"><div class="product-art green"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="Sakha Ortho" /></div><div class="card-body"><div class="tag">Support maksimal</div><h3>Sakha Ortho</h3><div class="price">Mulai Rp1.799.000 <span>→</span></div></div></article><article class="card"><div class="product-art orange"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Sakha Breeze" /></div><div class="card-body"><div class="tag">Sejuk sepanjang malam</div><h3>Sakha Breeze</h3><div class="price">Mulai Rp2.199.000 <span>→</span></div></div></article></div></section>
+    <section class="hero">
+      <div>
+        <!-- <div class="eyebrow">Istirahat yang berkualitas</div> -->
+        <h1>Kasur Nyaman Untuk Setiap Mimpi Indah.</h1>
+        <p>Temukan kenyamanan tidur yang dibuat khusus untuk menemani hari-hari terbaik Anda. Material premium, dukungan optimal, dan desain yang menenangkan.</p>
+        <div class="hero-actions"><a class="button" href="#kenyamanan">Rasakan Bedanya <i class="fa-solid fa-arrow-right"></i></a><a class="button light" href="#tentang">Kenapa Sakha Foam?</a></div>
+      </div>
+      <div class="hero-visual">
+        <div class="aurora a1"></div><div class="aurora a2"></div>
+        <div class="layer-card">
+          <div class="layer-head"><span>Anatomi kenyamanan</span><b>3 lapisan</b></div>
+          <button class="layer-row is-active" type="button" aria-expanded="true"><i class="fa-solid fa-feather"></i><span><b>Cover rajut lembut</b><small>Halus di kulit, sejuk, dan mudah dilepas untuk dicuci.</small></span></button>
+          <button class="layer-row" type="button" aria-expanded="false"><i class="fa-solid fa-cloud"></i><span><b>Comfort foam adaptif</b><small>Mengikuti lekuk tubuh dan meredam tekanan di bahu serta pinggul.</small></span></button>
+          <button class="layer-row" type="button" aria-expanded="false"><i class="fa-solid fa-layer-group"></i><span><b>Base foam penopang</b><small>Menjaga kasur tetap stabil dan tidak mudah kempes bertahun-tahun.</small></span></button>
+        </div>
+        <div class="floating rating"><b><i class="fa-solid fa-star"></i> 4.9/5</b>Ribuan tidur lebih nyenyak</div>
+        <div class="floating delivery"><i class="fa-solid fa-truck-fast"></i> Siap kirim hari ini</div>
+      </div>
+    </section>
+    <div class="trust marquee">
+      <div class="marquee-track">
+        <div class="marquee-group"><span>Garansi sampai 10 tahun</span><span>Material bersertifikat</span><span>Pengiriman aman</span><span>Gratis ongkir Jawa Timur</span><span>Konsultasi gratis</span><span>Ukuran custom</span><span>Agen resmi Royal Foam</span></div>
+        <div class="marquee-group" aria-hidden="true"><span>Garansi sampai 10 tahun</span><span>Material bersertifikat</span><span>Pengiriman aman</span><span>Gratis ongkir Jawa Timur</span><span>Konsultasi gratis</span><span>Ukuran custom</span><span>Agen resmi Royal Foam</span></div>
+        <div class="marquee-group" aria-hidden="true"><span>Garansi sampai 10 tahun</span><span>Material bersertifikat</span><span>Pengiriman aman</span><span>Gratis ongkir Jawa Timur</span><span>Konsultasi gratis</span><span>Ukuran custom</span><span>Agen resmi Royal Foam</span></div>
+      </div>
+    </div>
+    <section id="kenyamanan">
+      <div class="section-top"><div><div class="eyebrow">Rasakan bedanya</div><h2>Nyaman sejak malam pertama</h2></div><p>Tiga hal yang langsung terasa saat Anda berbaring di atas kasur Sakha Foam.</p></div>
+      <div class="showcase">
+        <article class="panel is-active" tabindex="0" aria-expanded="true">
+          <i class="panel-mark fa-solid fa-bed" aria-hidden="true"></i>
+          <div class="panel-body"><span class="panel-no">01</span><div class="tag">Support adaptif</div><h3>Menopang lekuk tubuh</h3><p>Foam mengikuti kontur tubuh sehingga punggung dan pinggang tetap tertopang sepanjang malam.</p></div>
+        </article>
+        <article class="panel" tabindex="0" aria-expanded="false">
+          <i class="panel-mark fa-solid fa-wind" aria-hidden="true"></i>
+          <div class="panel-body"><span class="panel-no">02</span><div class="tag">Sejuk sepanjang malam</div><h3>Udara mengalir bebas</h3><p>Struktur berpori melepas panas agar tidur tidak terasa gerah, bahkan di malam yang hangat.</p></div>
+        </article>
+        <article class="panel" tabindex="0" aria-expanded="false">
+          <i class="panel-mark fa-solid fa-shield-halved" aria-hidden="true"></i>
+          <div class="panel-body"><span class="panel-no">03</span><div class="tag">Tahan lama</div><h3>Kokoh bertahun-tahun</h3><p>Kepadatan foam terjaga untuk pemakaian harian dan dilindungi garansi hingga 10 tahun.</p></div>
+        </article>
+      </div>
+    </section>
     <section class="benefits" id="tentang"><div class="eyebrow">Dibuat untuk tubuh Anda</div><h2>Bangun lebih segar,<br>jalani hari lebih siap.</h2><div class="benefit-grid"><div><div class="icon"><i class="fa-solid fa-bed"></i></div><h3>Foam adaptif</h3><p>Menyesuaikan kontur tubuh untuk membantu menjaga posisi tidur tetap nyaman.</p></div><div><div class="icon"><i class="fa-solid fa-wind"></i></div><h3>Sirkulasi udara baik</h3><p>Struktur berpori membantu kasur terasa sejuk dan segar sepanjang malam.</p></div><div><div class="icon"><i class="fa-solid fa-shield-heart"></i></div><h3>Aman untuk keluarga</h3><p>Bahan pilihan yang lembut, minim bau, dan nyaman untuk penggunaan sehari-hari.</p></div></div></section>
-    <section class="gallery"><div class="section-top"><div><div class="eyebrow">Inspirasi ruang istirahat</div><h2>Nyaman menyatu dengan ruang Anda</h2>
-    <!-- </div><p>Desain kasur yang mudah melengkapi berbagai gaya kamar tidur modern.</p></div -->
-    ><div class="gallery-grid"><div class="gallery-card"><img src="https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1000&q=80" alt="Kamar tidur nyaman" /><span>Sudut tidur yang menenangkan</span></div><div class="gallery-card"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=700&q=80" alt="Detail kamar tidur" /><span>Material terpilih</span></div><div class="gallery-card"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80" alt="Interior modern" /><span>Gaya kontemporer</span></div><div class="gallery-card"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=700&q=80" alt="Tempat tidur modern" /><span>Nyaman setiap malam</span></div><div class="gallery-card"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=700&q=80" alt="Kamar tidur elegan" /><span>Ruang untuk beristirahat</span></div></div></section>
-    <section class="review-strip"><div class="section-top"><div><div class="eyebrow">Cerita pelanggan</div><h2>Dipilih untuk tidur yang lebih baik</h2></div></div><div class="review-grid"><article class="review"><div class="stars">★★★★★</div><p>“Empuknya pas dan badan terasa jauh lebih segar saat bangun. Pengirimannya juga sangat rapi.”</p><b>— Nadya P., Jakarta</b></article><article class="review"><div class="stars">★★★★★</div><p>“Desainnya premium, kualitasnya terasa. Sakha Ortho membantu posisi tidur saya jadi lebih nyaman.”</p><b>— Rafi A., Tangerang</b></article><article class="review"><div class="stars">★★★★★</div><p>“Pelayanannya informatif dari awal hingga barang sampai. Sangat direkomendasikan!”</p><b>— Sinta M., Depok</b></article></div></section>
+    <section class="gallery">
+      <div class="section-top"><div><div class="eyebrow">Lebih dari sekadar kasur</div><h2>Tenang sebelum dan sesudah membeli</h2></div><p>Layanan yang menemani Anda dari memilih sampai kasur dipakai setiap malam.</p></div>
+      <div class="bento">
+        <article class="bento-card big"><div class="ring"></div><b>10</b><h3>Tahun garansi</h3><p>Perlindungan jangka panjang untuk pemakaian sehari-hari.</p></article>
+        <article class="bento-card"><i class="fa-solid fa-ruler-combined"></i><h3>Ukuran custom</h3><p>Single sampai king, atau menyesuaikan ukuran ranjang Anda.</p></article>
+        <article class="bento-card"><i class="fa-solid fa-truck-fast"></i><h3>Gratis ongkir Jawa Timur</h3><p>Diantar sampai rumah dengan pengemasan yang rapi dan aman.</p></article>
+        <article class="bento-card"><i class="fa-solid fa-certificate"></i><h3>Material bersertifikat</h3><p>Bahan pilihan yang aman dan nyaman untuk seluruh keluarga.</p></article>
+        <article class="bento-card"><i class="fa-solid fa-comments"></i><h3>Konsultasi gratis</h3><p>Tanya dulu lewat WhatsApp sebelum Anda memutuskan.</p></article>
+      </div>
+    </section>
+    <section class="review-strip"><div class="section-top"><div><div class="eyebrow">Cerita pelanggan</div><h2>Dipilih untuk tidur yang lebih baik</h2></div></div><div class="review-grid"><article class="review"><div class="stars">★★★★★</div><p>“Empuknya pas dan badan terasa jauh lebih segar saat bangun. Pengirimannya juga sangat rapi.”</p><b>— Nadya P., Jakarta</b></article><article class="review"><div class="stars">★★★★★</div><p>“Desainnya premium, kualitasnya terasa. Kasurnya membantu posisi tidur saya jadi lebih nyaman.”</p><b>— Rafi A., Tangerang</b></article><article class="review"><div class="stars">★★★★★</div><p>“Pelayanannya informatif dari awal hingga barang sampai. Sangat direkomendasikan!”</p><b>— Sinta M., Depok</b></article></div></section>
     <section class="cta" id="pesan"><div class="cta-box"><div class="eyebrow">Tidur lebih baik dimulai di sini</div><h2>Masih bingung memilih kasur yang tepat?</h2><p>Tim Sakha Foam siap membantu menemukan ukuran dan tipe kasur sesuai kebutuhan Anda.</p><a class="button" href="https://wa.me/6289522146522" target="_blank" rel="noopener">Chat via WhatsApp</a></div></section>
-    <div class="numbers"><div class="number"><b>10+</b><span>tahun garansi pilihan</span></div><div class="number"><b>4.9/5</b><span>rating dari pelanggan</span></div><div class="number"><b>100</b><span>malam masa trial</span></div><div class="number"><b>15K+</b><span>kasur menemani mimpi</span></div></div>
+    <div class="numbers"><div class="number"><b>10+</b><span>tahun garansi pilihan</span></div><div class="number"><b>4.9/5</b><span>rating dari pelanggan</span></div><div class="number"><b>15K+</b><span>kasur menemani mimpi</span></div></div>
     <section class="sleep-guide"><div class="section-top"><div><div class="eyebrow">Panduan kenyamanan</div><h2>Memilih kasur tanpa ragu</h2></div><p>Tiga langkah sederhana untuk menemukan tingkat kenyamanan yang paling sesuai dengan Anda.</p></div><div class="guide-grid"><article class="guide-card"><span class="guide-no">01</span><i class="fa-solid fa-ruler-combined"></i><h3>Pilih ukuran</h3><p>Sesuaikan dengan luas kamar dan kebiasaan tidur Anda, dari single sampai king.</p></article><article class="guide-card"><span class="guide-no">02</span><i class="fa-solid fa-cloud"></i><h3>Tentukan feel</h3><p>Pilih soft, medium, atau firm untuk dukungan tubuh yang Anda butuhkan.</p></article><article class="guide-card"><span class="guide-no">03</span><i class="fa-solid fa-comment-dots"></i><h3>Konsultasi gratis</h3><p>Tim kami siap memberi rekomendasi personal sebelum Anda memutuskan.</p></article></div></section>
-    <section class="compare"><div class="compare-grid"><div class="compare-text"><div class="eyebrow">Teknologi tidur Sakha</div><h2>Setiap lapisan punya alasan.</h2><p>Rasakan kombinasi foam responsif dan struktur penopang yang bekerja selaras dari malam hingga pagi.</p><div class="feature-list"><span><i class="fa-solid fa-circle-check"></i>Cover lembut yang mudah dilepas</span><span><i class="fa-solid fa-circle-check"></i>Lapisan comfort foam yang adaptif</span><span><i class="fa-solid fa-circle-check"></i>Base foam untuk stabilitas jangka panjang</span></div></div><div class="comparison-card"><div class="compare-row"><b>Fitur</b><b>Sakha Foam</b><b>Kasur biasa</b></div><div class="compare-row"><span>100 malam trial</span><b class="check">Tersedia</b><span>-</span></div><div class="compare-row"><span>Garansi hingga 10 tahun</span><b class="check">Tersedia</b><span>Terbatas</span></div><div class="compare-row"><span>Material breathable</span><b class="check">Tersedia</b><span>Standar</span></div><div class="compare-row"><span>Konsultasi personal</span><b class="check">Gratis</b><span>-</span></div></div></div></section>
-    <section class="faq"><div class="faq-grid"><div><div class="eyebrow">Butuh bantuan?</div><h2>Pertanyaan yang sering ditanyakan</h2><p style="color:#405879;line-height:1.7">Masih ingin tahu lebih banyak? Tim kami siap membantu Anda memilih melalui WhatsApp.</p><a class="button" href="#pesan">Tanya Sekarang</a></div><div class="faq-list"><details class="faq-item" open><summary>Bagaimana cara memilih tingkat kenyamanan?</summary><p>Untuk penggunaan sehari-hari, tingkat medium adalah pilihan paling serbaguna. Konsultasikan kebutuhan Anda untuk rekomendasi yang lebih personal.</p></details><details class="faq-item"><summary>Apakah tersedia untuk semua ukuran?</summary><p>Tersedia ukuran single, super single, queen, king, dan ukuran khusus sesuai kebutuhan ruang Anda.</p></details><details class="faq-item"><summary>Berapa lama proses pengiriman?</summary><p>Pesanan Jawa Timur diproses 1–3 hari kerja. Pengiriman luar kota menyesuaikan wilayah tujuan.</p></details><details class="faq-item"><summary>Bagaimana ketentuan masa trial?</summary><p>Anda memiliki waktu hingga 100 malam untuk merasakan kenyamanan kasur di rumah.</p></details></div></div></section>
-    <section class="insights"><div class="section-top"><div><div class="eyebrow">Sakha insights</div><h2>Kenyamanan yang paling banyak dipilih</h2></div><p>Ringkasan tren pilihan pelanggan Sakha Foam dalam enam bulan terakhir.</p></div><div class="insight-grid"><article class="chart-card"><h3>Tren pembelian 2026</h3><small>Jumlah pesanan per bulan</small><div class="chart-wrap"><canvas id="salesChart"></canvas></div></article><article class="chart-card"><h3>Produk favorit</h3><small>Preferensi tipe kasur</small><div class="chart-wrap"><canvas id="productChart"></canvas></div><div class="mini-stats"><div class="mini-stat"><b>+38%</b><span>pertumbuhan pesanan</span></div><div class="mini-stat"><b>92%</b><span>pelanggan merekomendasikan</span></div></div></article></div></section>
+    <section class="compare"><div class="compare-grid"><div class="compare-text"><div class="eyebrow">Teknologi tidur Sakha</div><h2>Setiap lapisan punya alasan.</h2><p>Rasakan kombinasi foam responsif dan struktur penopang yang bekerja selaras dari malam hingga pagi.</p><div class="feature-list"><span><i class="fa-solid fa-circle-check"></i>Cover lembut yang mudah dilepas</span><span><i class="fa-solid fa-circle-check"></i>Lapisan comfort foam yang adaptif</span><span><i class="fa-solid fa-circle-check"></i>Base foam untuk stabilitas jangka panjang</span></div></div><div class="comparison-card"><div class="compare-row"><b>Fitur</b><b>Sakha Foam</b><b>Kasur biasa</b></div><div class="compare-row"><span>Garansi hingga 10 tahun</span><b class="check">Tersedia</b><span>Terbatas</span></div><div class="compare-row"><span>Material breathable</span><b class="check">Tersedia</b><span>Standar</span></div><div class="compare-row"><span>Konsultasi personal</span><b class="check">Gratis</b><span>-</span></div></div></div></section>
+    <section class="faq"><div class="faq-grid"><div><div class="eyebrow">Butuh bantuan?</div><h2>Pertanyaan yang sering ditanyakan</h2><p style="color:#405879;line-height:1.7">Masih ingin tahu lebih banyak? Tim kami siap membantu Anda memilih melalui WhatsApp.</p><a class="button" href="#pesan">Tanya Sekarang</a></div><div class="faq-list"><details class="faq-item" open><summary>Bagaimana cara memilih tingkat kenyamanan?</summary><p>Untuk penggunaan sehari-hari, tingkat medium adalah pilihan paling serbaguna. Konsultasikan kebutuhan Anda untuk rekomendasi yang lebih personal.</p></details><details class="faq-item"><summary>Apakah tersedia untuk semua ukuran?</summary><p>Tersedia ukuran single, super single, queen, king, dan ukuran khusus sesuai kebutuhan ruang Anda.</p></details><details class="faq-item"><summary>Berapa lama proses pengiriman?</summary><p>Pesanan Jawa Timur diproses 1–3 hari kerja. Pengiriman luar kota menyesuaikan wilayah tujuan.</p></details></div></div></section>
+    <section class="insights"><div class="section-top"><div><div class="eyebrow">Sakha insights</div><h2>Kenyamanan yang paling banyak dipilih</h2></div><p>Ringkasan tren pilihan pelanggan Sakha Foam dalam enam bulan terakhir.</p></div><div class="insight-grid"><article class="chart-card"><h3>Tren pembelian 2026</h3><small>Jumlah pesanan per bulan</small><div class="chart-wrap"><canvas id="salesChart"></canvas></div></article><article class="chart-card"><h3>Feel favorit</h3><small>Preferensi tingkat kenyamanan</small><div class="chart-wrap"><canvas id="productChart"></canvas></div><div class="mini-stats"><div class="mini-stat"><b>+38%</b><span>pertumbuhan pesanan</span></div><div class="mini-stat"><b>92%</b><span>pelanggan merekomendasikan</span></div></div></article></div></section>
     <section class="service-band"><div class="service-box"><div><div class="eyebrow" style="color:#0b2854">Pengalaman belanja Sakha</div><h2>Nyaman sejak memilih hingga tidur.</h2></div><div class="service-points"><div class="service-point"><i class="fa-solid fa-box-open"></i><span>Pengemasan rapi & aman</span></div><div class="service-point"><i class="fa-solid fa-headset"></i><span>Customer care setiap hari</span></div><div class="service-point"><i class="fa-solid fa-credit-card"></i><span>Pembayaran fleksibel</span></div><div class="service-point"><i class="fa-solid fa-house-circle-check"></i><span>Antar sampai ke rumah</span></div></div></div></section>
-    <section class="profile-picker"><div class="section-top"><div><div class="eyebrow">Temukan match Anda</div><h2>Kasur yang mengikuti gaya tidur Anda</h2></div><p>Pilih berdasarkan kebutuhan utama agar keputusan belanja terasa lebih mudah dan personal.</p></div><div class="profile-grid"><article class="profile-card"><i class="fa-solid fa-feather"></i><h3>Suka tidur empuk</h3><p>Rasakan pelukan lembut dengan Sakha Cloud, ideal untuk Anda yang menyukai sensasi plush.</p><a href="#koleksi">Lihat Sakha Cloud <i class="fa-solid fa-arrow-right"></i></a></article><article class="profile-card"><i class="fa-solid fa-person"></i><h3>Butuh support ekstra</h3><p>Sakha Ortho memberi dukungan lebih stabil untuk membantu posisi tidur terasa lebih seimbang.</p><a href="#koleksi">Lihat Sakha Ortho <i class="fa-solid fa-arrow-right"></i></a></article><article class="profile-card"><i class="fa-solid fa-snowflake"></i><h3>Mudah merasa gerah</h3><p>Sakha Breeze dirancang dengan struktur sirkulasi udara untuk tidur yang lebih sejuk.</p><a href="#koleksi">Lihat Sakha Breeze <i class="fa-solid fa-arrow-right"></i></a></article></div></section>
+    <section class="profile-picker"><div class="section-top"><div><div class="eyebrow">Temukan match Anda</div><h2>Kasur yang mengikuti gaya tidur Anda</h2></div><p>Ceritakan kebutuhan utama Anda, tim kami bantu carikan yang paling sesuai.</p></div><div class="profile-grid"><article class="profile-card"><i class="fa-solid fa-feather"></i><h3>Suka tidur empuk</h3><p>Feel lembut yang memeluk tubuh, ideal untuk Anda yang menyukai sensasi plush.</p><a href="#pesan">Konsultasikan <i class="fa-solid fa-arrow-right"></i></a></article><article class="profile-card"><i class="fa-solid fa-person"></i><h3>Butuh support ekstra</h3><p>Dukungan lebih stabil untuk membantu posisi tidur terasa lebih seimbang.</p><a href="#pesan">Konsultasikan <i class="fa-solid fa-arrow-right"></i></a></article><article class="profile-card"><i class="fa-solid fa-snowflake"></i><h3>Mudah merasa gerah</h3><p>Struktur sirkulasi udara yang baik untuk tidur yang lebih sejuk.</p><a href="#pesan">Konsultasikan <i class="fa-solid fa-arrow-right"></i></a></article></div></section>
     <section class="location-section" id="lokasi">
       <div class="location-grid">
         <div class="location-copy">
@@ -463,24 +626,137 @@
   </div>
   <footer><div class="footer-logo"><img src="s3.png" alt="Sakha Foam" /></div><div>© 2026 Sakha Foam. Tidur nyaman, setiap malam.</div></footer>
   <script>
-    const chartText = '#ffffff';
-    new Chart(document.getElementById('salesChart'), {
-      type: 'line',
-      data: {
-        labels: ['Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep'],
-        datasets: [{
-          label: 'Pesanan', data: [180, 245, 218, 320, 386, 452],
-          borderColor: '#f7ae31', backgroundColor: 'rgba(247,174,49,.16)',
-          fill: true, tension: .42, pointRadius: 4, pointBackgroundColor: '#f7ae31', borderWidth: 3
-        }]
-      },
-      options: { maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false }, ticks: { color: chartText } }, y: { beginAtZero: true, grid: { color: 'rgba(201,216,236,.16)' }, ticks: { color: chartText } } } }
-    });
-    new Chart(document.getElementById('productChart'), {
-      type: 'doughnut',
-      data: { labels: ['Sakha Cloud', 'Sakha Ortho', 'Sakha Breeze'], datasets: [{ data: [46, 31, 23], backgroundColor: ['#f7ae31', '#519378', '#efe9d0'], borderColor: '#263b69', borderWidth: 5, hoverOffset: 8 }] },
-      options: { maintainAspectRatio: false, cutout: '66%', plugins: { legend: { position: 'bottom', labels: { color: chartText, usePointStyle: true, padding: 16, font: { family: 'Plus Jakarta Sans' } } } } }
-    });
+    if (window.Chart) {
+      const chartText = '#ffffff';
+      new Chart(document.getElementById('salesChart'), {
+        type: 'line',
+        data: {
+          labels: ['Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep'],
+          datasets: [{
+            label: 'Pesanan', data: [180, 245, 218, 320, 386, 452],
+            borderColor: '#f7ae31', backgroundColor: 'rgba(247,174,49,.16)',
+            fill: true, tension: .42, pointRadius: 4, pointBackgroundColor: '#f7ae31', borderWidth: 3
+          }]
+        },
+        options: { maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false }, ticks: { color: chartText } }, y: { beginAtZero: true, grid: { color: 'rgba(201,216,236,.16)' }, ticks: { color: chartText } } } }
+      });
+      new Chart(document.getElementById('productChart'), {
+        type: 'doughnut',
+        data: { labels: ['Soft', 'Medium', 'Firm'], datasets: [{ data: [31, 46, 23], backgroundColor: ['#8fa8d8', '#f7ae31', '#efe9d0'], borderColor: '#263b69', borderWidth: 5, hoverOffset: 8 }] },
+        options: { maintainAspectRatio: false, cutout: '66%', plugins: { legend: { position: 'bottom', labels: { color: chartText, usePointStyle: true, padding: 16, font: { family: 'Plus Jakarta Sans' } } } } }
+      });
+    }
+
+    (() => {
+      const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Hover, tap or focus opens an item; while idle the group advances on its own
+      const rotator = (container, selector, interval) => {
+        if (!container) return;
+        const items = [...container.querySelectorAll(selector)];
+        let timer;
+        const activate = (item) => items.forEach((el) => {
+          el.classList.toggle('is-active', el === item);
+          el.setAttribute('aria-expanded', el === item);
+        });
+        const stop = () => { clearInterval(timer); container.classList.remove('is-auto'); };
+        const start = () => {
+          if (reduceMotion) return;
+          stop();
+          container.classList.add('is-auto');
+          timer = setInterval(() => {
+            const next = (items.findIndex((el) => el.classList.contains('is-active')) + 1) % items.length;
+            activate(items[next]);
+          }, interval);
+        };
+        items.forEach((item) => {
+          ['mouseenter', 'focus', 'click'].forEach((type) => item.addEventListener(type, () => activate(item)));
+          item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(item); }
+          });
+        });
+        container.addEventListener('mouseenter', stop);
+        container.addEventListener('focusin', stop);
+        container.addEventListener('touchstart', stop, { passive: true });
+        container.addEventListener('mouseleave', start);
+        container.addEventListener('focusout', start);
+        start();
+      };
+      rotator(document.querySelector('.showcase'), '.panel', 4500);
+      rotator(document.querySelector('.layer-card'), '.layer-row', 3500);
+
+      // Spotlight follows the cursor inside bento cards
+      document.querySelectorAll('.bento-card').forEach((card) => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--mx', e.clientX - rect.left + 'px');
+          card.style.setProperty('--my', e.clientY - rect.top + 'px');
+        });
+      });
+
+      // Hero card tilts toward the cursor
+      const visual = document.querySelector('.hero-visual');
+      if (visual && !reduceMotion && matchMedia('(hover: hover)').matches) {
+        visual.addEventListener('mousemove', (e) => {
+          const rect = visual.getBoundingClientRect();
+          visual.style.setProperty('--ry', ((e.clientX - rect.left) / rect.width - .5) * 6 + 'deg');
+          visual.style.setProperty('--rx', ((e.clientY - rect.top) / rect.height - .5) * -6 + 'deg');
+        });
+        visual.addEventListener('mouseleave', () => {
+          visual.style.removeProperty('--rx');
+          visual.style.removeProperty('--ry');
+        });
+      }
+    })();
+
+    (() => {
+      const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduceMotion || !('IntersectionObserver' in window)) return;
+
+      // Scroll reveal: the classes are removed afterwards so hover transitions behave as before
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          revealObserver.unobserve(el);
+          el.classList.add('in');
+          setTimeout(() => {
+            el.classList.remove('reveal', 'in');
+            el.style.transitionDelay = '';
+          }, 800 + Number(el.dataset.revealDelay));
+        });
+      }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.section-top, .showcase,.benefit-grid > div, .bento-card,.review, .cta-box, .number, .guide-card, .compare-text, .comparison-card, .faq-grid > div, .chart-card, .service-box, .profile-card, .location-copy, .map-card').forEach((el) => {
+        const delay = Math.min([...el.parentElement.children].indexOf(el), 5) * 90;
+        el.dataset.revealDelay = delay;
+        el.style.transitionDelay = delay + 'ms';
+        el.classList.add('reveal');
+        revealObserver.observe(el);
+      });
+
+      // Count-up for the numbers band
+      const numbers = document.querySelector('.numbers');
+      if (!numbers) return;
+      const countObserver = new IntersectionObserver((entries) => {
+        if (!entries[0].isIntersecting) return;
+        countObserver.disconnect();
+        numbers.querySelectorAll('b').forEach((b) => {
+          const match = b.textContent.match(/^([\d.]+)(.*)$/);
+          if (!match) return;
+          const end = parseFloat(match[1]);
+          const decimals = (match[1].split('.')[1] || '').length;
+          const start = performance.now();
+          const step = (now) => {
+            const progress = Math.min((now - start) / 1400, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            b.textContent = (end * eased).toFixed(decimals) + match[2];
+            if (progress < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        });
+      }, { threshold: .4 });
+      countObserver.observe(numbers);
+    })();
   </script>
 </body>
 </html>
