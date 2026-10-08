@@ -495,11 +495,59 @@
     .bento-card:hover>i{background:#f7ae31;transform:rotate(-8deg) scale(1.08)}
     .bento-card h3{margin:auto 0 8px;padding-top:26px;color:#314c86;font-size:19px}
     .bento-card p{margin:0;color:#53627a;font-size:14px;line-height:1.6}
+    .bento-card.wide{grid-column:1/-1;flex-direction:row;align-items:center;gap:22px;min-height:0}
+    .bento-card.wide>i{flex:0 0 48px}
+    .bento-card.wide h3{margin:0 0 6px;padding:0}
     .bento-card.big{grid-row:span 2;justify-content:flex-end;border-color:transparent;background:linear-gradient(150deg,#314c86,#1d2f57)}
     .bento-card.big .ring{position:absolute;top:-70px;right:-70px;width:260px;height:260px;border:2px dashed rgba(255,255,255,.28);border-radius:50%;animation:spin 40s linear infinite}
     .bento-card.big b{color:#f7ae31;font-size:clamp(84px,11vw,150px);font-weight:800;line-height:.9;letter-spacing:-4px}
     .bento-card.big h3{margin:12px 0 8px;padding:0;color:#fff;font-size:26px}
     .bento-card.big p{max-width:340px;color:#d9e2f3}
+
+    /* Places served */
+    .places{max-width:none;padding:92px max(24px,calc((100% - 1132px)/2));overflow:hidden;background:linear-gradient(125deg,#263b69,#314c86);color:#fff}
+    .places:before{content:'';position:absolute;z-index:-1;right:-140px;bottom:-200px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(247,174,49,.3),transparent 65%);animation:drift 16s ease-in-out infinite alternate}
+    .places .eyebrow{color:#f7ae31}
+    .places .section-top h2{color:#fff}
+    .places .section-top p{color:#d9e2f3}
+    .place-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:0;padding:0;list-style:none}
+    .place-grid li{display:flex;flex-direction:column;min-width:0;padding:22px;border:1px solid rgba(255,255,255,.16);border-radius:18px;background:rgba(255,255,255,.07);transition:background .3s,color .3s,transform .3s,box-shadow .3s}
+    .place-grid li:hover{background:#fff;color:#314c86;transform:translateY(-6px);box-shadow:0 18px 34px rgba(15,25,50,.3)}
+    .place-grid i{display:grid;place-items:center;width:46px;height:46px;margin-bottom:18px;border-radius:13px;background:#f7ae31;color:#fff;font-size:18px;transition:transform .3s}
+    .place-grid li:hover i{transform:rotate(-8deg) scale(1.08)}
+    .place-grid b{font-size:16px}
+    .place-grid span{margin-top:6px;color:#c9d5ec;font-size:13px;line-height:1.55;transition:color .3s}
+    .place-grid li:hover span{color:#53627a}
+    .places-cta{display:flex;justify-content:center;margin-top:36px}
+    .places .button{border-color:#f7ae31;background:#f7ae31}
+    .places .button:hover{border-color:#fff;background:#fff;color:#314c86}
+    @media(max-width:760px){
+      .places{padding:58px 20px}
+      .place-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+      .place-grid li{padding:16px}
+      .place-grid i{width:40px;height:40px;margin-bottom:14px;font-size:16px}
+      .place-grid b{font-size:14px}
+      .place-grid span{font-size:12px}
+      .places-cta{margin-top:26px}
+    }
+    @media(max-width:480px){.places{padding:52px 17px}}
+
+    /* Review carousel */
+    .review-nav{display:flex;gap:10px}
+    .review-nav button{display:grid;place-items:center;width:46px;height:46px;border:1px solid #314c86;border-radius:50%;background:transparent;color:#314c86;font-size:15px;cursor:pointer;transition:background .25s,color .25s,transform .25s}
+    .review-nav button:hover{background:#314c86;color:#fff;transform:translateY(-2px)}
+    .review-track{display:flex;gap:24px;padding:10px 0 36px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+    .review-track::-webkit-scrollbar{display:none}
+    .review-track:focus-visible{outline:3px solid #f7ae31;outline-offset:4px;border-radius:20px}
+    .review-track .review{display:flex;flex:0 0 calc((100% - 48px)/3);flex-direction:column;min-width:0;scroll-snap-align:start}
+    .review-track .review:first-child{border-color:#ded6bb;border-top-color:#f7ae31;background:#fff;box-shadow:0 12px 28px rgba(49,76,134,.09);text-shadow:none}
+    .review-track .review:first-child:before{color:rgba(49,76,134,.08)}
+    .review-track .review:first-child b{color:#314c86}
+    .review-track .review:first-child p{color:#354564}
+    .review-track .review .stars,.review-track .review:first-child .stars{color:#f7ae31}
+    @media(max-width:1000px){.review-track .review{flex-basis:calc((100% - 24px)/2)}}
+    .review-progress{height:4px;overflow:hidden;border-radius:4px;background:rgba(49,76,134,.14)}
+    .review-progress span{display:block;height:100%;border-radius:4px;background:#314c86;transform:scaleX(.18);transform-origin:left;transition:transform .5s ease}
 
     /* Ambient motion */
     .benefits:after{animation:drift 14s ease-in-out infinite alternate}
@@ -532,6 +580,9 @@
       .panel-mark{top:16px;right:16px;font-size:48px}
       .panel.is-active .panel-mark{font-size:96px}
       .panel.is-active h3{font-size:23px}
+      .review-nav{margin-top:18px}
+      .review-track{gap:14px}
+      .review-track .review{flex-basis:100%}
       .bento{grid-template-columns:1fr;gap:14px}
       .bento-card{min-height:0;padding:22px}
       .bento-card.big{grid-row:auto;min-height:300px}
@@ -542,14 +593,14 @@
   </style>
 </head>
 <body>
-  <div class="announcement">GRATIS ONGKIR SE-JAWA TIMUR • GARANSI HINGGA 10 TAHUN</div>
+  <div class="announcement">GRATIS ONGKIR SE-JAWA TIMUR • GARANSI HINGGA 20 TAHUN</div>
   <nav><a class="logo" href="#beranda" aria-label="Sakha Foam"><img src="s3.png" alt="Sakha Foam" /></a><div class="links"><a href="#kenyamanan">Kenyamanan</a><a href="#tentang">Keunggulan</a><a href="#pesan">Pesan</a></div><a class="nav-cta" href="#pesan">Konsultasi Gratis</a></nav>
   <main id="beranda">
     <section class="hero">
       <div>
         <!-- <div class="eyebrow">Istirahat yang berkualitas</div> -->
         <h1>Kasur Nyaman Untuk Setiap Mimpi Indah.</h1>
-        <p>Temukan kenyamanan tidur yang dibuat khusus untuk menemani hari-hari terbaik Anda. Material premium, dukungan optimal, dan desain yang menenangkan.</p>
+        <p>Kasur busa yang empuk tapi tetap menopang punggung, tidak mudah kempes, dan sejuk dipakai sepanjang malam. Bergaransi hingga 20 tahun, gratis ongkir se-Jawa Timur.</p>
         <div class="hero-actions"><a class="button" href="#kenyamanan">Rasakan Bedanya <i class="fa-solid fa-arrow-right"></i></a><a class="button light" href="#tentang">Kenapa Sakha Foam?</a></div>
       </div>
       <div class="hero-visual">
@@ -566,9 +617,9 @@
     </section>
     <div class="trust marquee">
       <div class="marquee-track">
-        <div class="marquee-group"><span>Garansi sampai 10 tahun</span><span>Material bersertifikat</span><span>Pengiriman aman</span><span>Gratis ongkir se-Jawa Timur</span><span>Konsultasi gratis</span><span>Ukuran custom</span><span>Agen resmi Royal Foam</span></div>
-        <div class="marquee-group" aria-hidden="true"><span>Garansi sampai 10 tahun</span><span>Material bersertifikat</span><span>Pengiriman aman</span><span>Gratis ongkir se-Jawa Timur</span><span>Konsultasi gratis</span><span>Ukuran custom</span><span>Agen resmi Royal Foam</span></div>
-        <div class="marquee-group" aria-hidden="true"><span>Garansi sampai 10 tahun</span><span>Material bersertifikat</span><span>Pengiriman aman</span><span>Gratis ongkir se-Jawa Timur</span><span>Konsultasi gratis</span><span>Ukuran custom</span><span>Agen resmi Royal Foam</span></div>
+        <div class="marquee-group"><span>Garansi sampai 20 tahun</span><span>Material bersertifikat</span><span>Pengiriman aman</span><span>Gratis ongkir se-Jawa Timur</span><span>Konsultasi gratis</span><span>Ukuran custom</span><span>Agen resmi Royal Foam</span></div>
+        <div class="marquee-group" aria-hidden="true"><span>Garansi sampai 20 tahun</span><span>Material bersertifikat</span><span>Pengiriman aman</span><span>Gratis ongkir se-Jawa Timur</span><span>Konsultasi gratis</span><span>Ukuran custom</span><span>Agen resmi Royal Foam</span></div>
+        <div class="marquee-group" aria-hidden="true"><span>Garansi sampai 20 tahun</span><span>Material bersertifikat</span><span>Pengiriman aman</span><span>Gratis ongkir se-Jawa Timur</span><span>Konsultasi gratis</span><span>Ukuran custom</span><span>Agen resmi Royal Foam</span></div>
       </div>
     </div>
     <section id="kenyamanan">
@@ -584,7 +635,7 @@
         </article>
         <article class="panel" tabindex="0" aria-expanded="false">
           <i class="panel-mark fa-solid fa-shield-halved" aria-hidden="true"></i>
-          <div class="panel-body"><span class="panel-no">03</span><div class="tag">Tahan lama</div><h3>Kokoh bertahun-tahun</h3><p>Kepadatan foam terjaga untuk pemakaian harian dan dilindungi garansi hingga 10 tahun.</p></div>
+          <div class="panel-body"><span class="panel-no">03</span><div class="tag">Tahan lama</div><h3>Kokoh bertahun-tahun</h3><p>Kepadatan foam terjaga untuk pemakaian harian dan dilindungi garansi hingga 20 tahun.</p></div>
         </article>
       </div>
     </section>
@@ -592,21 +643,63 @@
     <section class="gallery">
       <div class="section-top"><div><div class="eyebrow">Lebih dari sekadar kasur</div><h2>Tenang sebelum dan sesudah membeli</h2></div><p>Layanan yang menemani Anda dari memilih sampai kasur dipakai setiap malam.</p></div>
       <div class="bento">
-        <article class="bento-card big"><div class="ring"></div><b>10</b><h3>Tahun garansi</h3><p>Perlindungan jangka panjang untuk pemakaian sehari-hari.</p></article>
+        <article class="bento-card big"><div class="ring"></div><b>20</b><h3>Tahun garansi</h3><p>Perlindungan jangka panjang untuk pemakaian sehari-hari.</p></article>
         <article class="bento-card"><i class="fa-solid fa-ruler-combined"></i><h3>Ukuran custom</h3><p>Single sampai king, atau menyesuaikan ukuran ranjang Anda.</p></article>
-        <article class="bento-card"><i class="fa-solid fa-truck-fast"></i><h3>Gratis ongkir se-Jawa Timur</h3><p>Diantar sampai rumah dengan pengemasan yang rapi dan aman.</p></article>
+        <article class="bento-card"><i class="fa-solid fa-truck-fast"></i><h3>Gratis ongkir se-Jawa Timur</h3><p>Diantar sampai tempat dengan pengemasan yang rapi dan aman.</p></article>
         <article class="bento-card"><i class="fa-solid fa-certificate"></i><h3>Material bersertifikat</h3><p>Bahan pilihan yang aman dan nyaman untuk seluruh keluarga.</p></article>
         <article class="bento-card"><i class="fa-solid fa-comments"></i><h3>Konsultasi gratis</h3><p>Tanya dulu lewat WhatsApp sebelum Anda memutuskan.</p></article>
+        <article class="bento-card wide"><i class="fa-solid fa-boxes-stacked"></i><div><h3>Melayani grosir &amp; ecer</h3><p>Dari satu kasur untuk rumah sampai pesanan dalam jumlah banyak untuk usaha dan lembaga, semuanya kami layani.</p></div></article>
       </div>
     </section>
-    <section class="review-strip"><div class="section-top"><div><div class="eyebrow">Cerita pelanggan</div><h2>Dipilih untuk tidur yang lebih baik</h2></div></div><div class="review-grid"><article class="review"><div class="stars">★★★★★</div><p>“Empuknya pas dan badan terasa jauh lebih segar saat bangun. Pengirimannya juga sangat rapi.”</p><b>— Nadya P., Jakarta</b></article><article class="review"><div class="stars">★★★★★</div><p>“Desainnya premium, kualitasnya terasa. Kasurnya membantu posisi tidur saya jadi lebih nyaman.”</p><b>— Rafi A., Tangerang</b></article><article class="review"><div class="stars">★★★★★</div><p>“Pelayanannya informatif dari awal hingga barang sampai. Sangat direkomendasikan!”</p><b>— Sinta M., Depok</b></article></div></section>
+    <section class="places" id="melayani">
+      <div class="section-top"><div><div class="eyebrow">Untuk rumah, usaha, dan lembaga</div><h2>Satu toko untuk semua kebutuhan kasur</h2></div><p>Beli satuan maupun dalam jumlah banyak, ukurannya bisa menyesuaikan ranjang di tempat Anda.</p></div>
+      <ul class="place-grid">
+        <li><i class="fa-solid fa-house"></i><b>Rumah pribadi</b><span>Kasur harian untuk seluruh keluarga.</span></li>
+        <li><i class="fa-solid fa-door-open"></i><b>Kos-kosan</b><span>Isi banyak kamar sekaligus.</span></li>
+        <li><i class="fa-solid fa-hotel"></i><b>Hotel</b><span>Tidur nyaman untuk tamu menginap.</span></li>
+        <li><i class="fa-solid fa-umbrella-beach"></i><b>Villa</b><span>Istirahat enak selama liburan.</span></li>
+        <li><i class="fa-solid fa-mosque"></i><b>Pondok pesantren</b><span>Kasur asrama untuk para santri.</span></li>
+        <li><i class="fa-solid fa-hand-holding-heart"></i><b>Yayasan panti asuhan</b><span>Tempat tidur nyaman untuk anak asuh.</span></li>
+        <li><i class="fa-solid fa-people-roof"></i><b>Mess karyawan</b><span>Istirahat cukup setelah bekerja.</span></li>
+        <li><i class="fa-solid fa-hospital"></i><b>Rumah sakit</b><span>Kasur busa sesuai ukuran ranjang.</span></li>
+      </ul>
+      <div class="places-cta"><a class="button" href="https://wa.me/6289522146522" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Tanya Pesanan Jumlah Banyak</a></div>
+    </section>
+    <section class="review-strip">
+      <div class="section-top">
+        <div><div class="eyebrow">Cerita pelanggan</div><h2>Dipilih untuk tidur yang lebih baik</h2></div>
+        <div class="review-nav"><button class="review-prev" type="button" aria-label="Ulasan sebelumnya"><i class="fa-solid fa-arrow-left"></i></button><button class="review-next" type="button" aria-label="Ulasan berikutnya"><i class="fa-solid fa-arrow-right"></i></button></div>
+      </div>
+      <div class="review-carousel">
+        <div class="review-track" tabindex="0" aria-label="Ulasan pelanggan Sakha Foam">
+          <article class="review"><div class="stars">★★★★★</div><p>“Harganya dijamin paling murah. Saya sudah bandingkan ke sana kemari, di sini yang paling murah. Ownernya ramah, baik, fast respon, dan barangnya original.”</p><b>— Ayu Ma</b></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“Alhamdulillah tokonya amanah. Busanya bagus, sesuai yang kami inginkan untuk tempat tidur anak-anak. Dapat free bantal guling, covernya lembut dan bahannya adem. Pelayanannya juga perfect.”</p><b>— Ima Nia</b></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“Baru tahu di Sidoarjo ada toko kasur yang bisa custom. Pelayanannya ramah banget, kualitasnya terbaik, harganya terjangkau, dan garansinya sampai 20 tahun.”</p><b>— Siapa Aku</b></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“Pelayanannya sangat bagus dan ramah. Yang pasti suka belanja di toko Sakha Foam, dijamin tidak mengecewakan.”</p><b>— pkbmalhikmah sukodono</b></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“Sudah pembelian kedua dan selalu puas. Terima kasih.”</p><b>— Michelle Fernandez</b></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“Mantap, adminnya gercep dan barangnya bagus. Tidak usah ragu beli di sini. Sukses terus ya, Sakha Foam.”</p><b>— Moch Zulfikar</b></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“Kasur sponnya bagus, kualitasnya oke dan sesuai ekspektasi. Penjualnya ramah, pelayanannya juga baik. Kalau beli kasur di Sakha Foam tidak bakal kecewa.”</p><b>— Ina Zuniati</b></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“Recommended banget, berkualitas dan amanah. Pelayanannya baik dan ramah, pengirimannya cepat. Next order lagi di Sakha Foam, agen resmi. Top!”</p><b>— Vita JE</b></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“Pelayanannya sangat baik. Kasur busa termurah se-Krian–Sidoarjo, harga murah dengan kualitas yang sangat baik. Terima kasih, Sakha Foam.”</p><b>— Amelia Amelia</b></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“Toko amanah, suka sama pelayanannya yang ramah sekali. Busanya bagus, anak-anak juga suka. Next mau order lagi di sini.”</p><b>— Devi Ariana</b></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“Harga oke dan sesuai barangnya, mantap. Puas belanja di sini. Insyaallah kalau ada rezeki beli di sini lagi.”</p><b>— Fatkur Rojik</b></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“Senang sekali, barangnya bagus dan datang tepat waktu. Pelayanan dan kurirnya sangat ramah. The best buat Sakha Foam, agen resmi Royal Foam.”</p><b>— Nina Ariani</b></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“Busa asli Royal Foam, kualitasnya bagus, tidak rugi. Di samping itu harganya bersahabat. Terima kasih, Sakha Foam.”</p><b>— Tejo Sulistiono</b></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“Barangnya bagus pol, tidak menyesal order dari jauh di toko ini. Harganya murah, banyak bonusnya, dan penjualnya ramah mengarahkan ke kualitas terbaik.”</p><b>— Titto crust</b></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“Pesanan sudah diterima, barangnya bagus dan pelayanannya cepat, langsung dikirim ke rumah. Beli kasur busa dapat bonus bantal, guling, dan cover. Next order di sini lagi.”</p><b>— Ayumi Mamoko</b></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“Alhamdulillah, kirim ke KBD Driyorejo, Gresik, free ongkir. Recommended bagi yang sedang cari kasur busa.”</p><b>— Fuad Hariyanto</b></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“Penjualnya ramah. Beli spon dapat bonus guling, bantal, dan seprai. Spon mobil buat mudik biar anak-anak lebih nyaman di perjalanan jauh, bisa dimodif di tempat dan langsung jadi sesuai permintaan.”</p><b>— Santosa</b></article>
+        </div>
+        <div class="review-progress" aria-hidden="true"><span></span></div>
+      </div>
+    </section>
     <section class="cta" id="pesan"><div class="cta-box"><div class="eyebrow">Tidur lebih baik dimulai di sini</div><h2>Masih bingung memilih kasur yang tepat?</h2><p>Tim Sakha Foam siap membantu menemukan ukuran dan tipe kasur sesuai kebutuhan Anda.</p><a class="button" href="https://wa.me/6289522146522" target="_blank" rel="noopener">Chat via WhatsApp</a></div></section>
-    <div class="numbers"><div class="number"><b>10+</b><span>tahun garansi pilihan</span></div><div class="number"><b>4.9/5</b><span>rating dari pelanggan</span></div><div class="number"><b>15K+</b><span>kasur menemani mimpi</span></div></div>
+    <div class="numbers"><div class="number"><b>20</b><span>tahun garansi pilihan</span></div><div class="number"><b>4.9/5</b><span>rating dari pelanggan</span></div><div class="number"><b>15K+</b><span>kasur menemani mimpi</span></div></div>
     <section class="sleep-guide"><div class="section-top"><div><div class="eyebrow">Panduan kenyamanan</div><h2>Memilih kasur tanpa ragu</h2></div><p>Tiga langkah sederhana untuk menemukan tingkat kenyamanan yang paling sesuai dengan Anda.</p></div><div class="guide-grid"><article class="guide-card"><span class="guide-no">01</span><i class="fa-solid fa-ruler-combined"></i><h3>Pilih ukuran</h3><p>Sesuaikan dengan luas kamar dan kebiasaan tidur Anda, dari single sampai king.</p></article><article class="guide-card"><span class="guide-no">02</span><i class="fa-solid fa-cloud"></i><h3>Tentukan feel</h3><p>Pilih soft, medium, atau firm untuk dukungan tubuh yang Anda butuhkan.</p></article><article class="guide-card"><span class="guide-no">03</span><i class="fa-solid fa-comment-dots"></i><h3>Konsultasi gratis</h3><p>Tim kami siap memberi rekomendasi personal sebelum Anda memutuskan.</p></article></div></section>
-    <section class="compare"><div class="compare-grid"><div class="compare-text"><div class="eyebrow">Teknologi tidur Sakha</div><h2>Setiap lapisan punya alasan.</h2><p>Rasakan kombinasi foam responsif dan struktur penopang yang bekerja selaras dari malam hingga pagi.</p><div class="feature-list"><span><i class="fa-solid fa-circle-check"></i>Cover lembut yang mudah dilepas</span><span><i class="fa-solid fa-circle-check"></i>Lapisan comfort foam yang adaptif</span><span><i class="fa-solid fa-circle-check"></i>Base foam untuk stabilitas jangka panjang</span></div></div><div class="comparison-card"><div class="compare-row"><b>Fitur</b><b>Sakha Foam</b><b>Kasur biasa</b></div><div class="compare-row"><span>Garansi hingga 10 tahun</span><b class="check">Tersedia</b><span>Terbatas</span></div><div class="compare-row"><span>Material breathable</span><b class="check">Tersedia</b><span>Standar</span></div><div class="compare-row"><span>Konsultasi personal</span><b class="check">Gratis</b><span>-</span></div></div></div></section>
+    <section class="compare"><div class="compare-grid"><div class="compare-text"><div class="eyebrow">Teknologi  Royal Foam</div><h2>Setiap lapisan punya alasan.</h2><p>Rasakan kombinasi foam responsif dan struktur penopang yang bekerja selaras dari malam hingga pagi.</p><div class="feature-list"><span><i class="fa-solid fa-circle-check"></i>Cover lembut yang mudah dilepas</span><span><i class="fa-solid fa-circle-check"></i>Lapisan comfort foam yang adaptif</span><span><i class="fa-solid fa-circle-check"></i>Base foam untuk stabilitas jangka panjang</span></div></div><div class="comparison-card"><div class="compare-row"><b>Fitur</b><b>Sakha Foam</b><b>Kasur biasa</b></div><div class="compare-row"><span>Garansi hingga 20 tahun</span><b class="check">Tersedia</b><span>Terbatas</span></div><div class="compare-row"><span>Material breathable</span><b class="check">Tersedia</b><span>Standar</span></div><div class="compare-row"><span>Konsultasi personal</span><b class="check">Gratis</b><span>-</span></div></div></div></section>
     <section class="faq"><div class="faq-grid"><div><div class="eyebrow">Butuh bantuan?</div><h2>Pertanyaan yang sering ditanyakan</h2><p style="color:#405879;line-height:1.7">Masih ingin tahu lebih banyak? Tim kami siap membantu Anda memilih melalui WhatsApp.</p><a class="button" href="#pesan">Tanya Sekarang</a></div><div class="faq-list"><details class="faq-item" open><summary>Bagaimana cara memilih tingkat kenyamanan?</summary><p>Untuk penggunaan sehari-hari, tingkat medium adalah pilihan paling serbaguna. Konsultasikan kebutuhan Anda untuk rekomendasi yang lebih personal.</p></details><details class="faq-item"><summary>Apakah tersedia untuk semua ukuran?</summary><p>Tersedia ukuran single, super single, queen, king, dan ukuran khusus sesuai kebutuhan ruang Anda.</p></details><details class="faq-item"><summary>Berapa lama proses pengiriman?</summary><p>Pesanan Jawa Timur diproses 1–3 hari kerja. Pengiriman luar kota menyesuaikan wilayah tujuan.</p></details></div></div></section>
     <section class="insights"><div class="section-top"><div><div class="eyebrow">Sakha insights</div><h2>Kenyamanan yang paling banyak dipilih</h2></div><p>Ringkasan tren pilihan pelanggan Sakha Foam dalam enam bulan terakhir.</p></div><div class="insight-grid"><article class="chart-card"><h3>Tren pembelian 2026</h3><small>Jumlah pesanan per bulan</small><div class="chart-wrap"><canvas id="salesChart"></canvas></div></article><article class="chart-card"><h3>Feel favorit</h3><small>Preferensi tingkat kenyamanan</small><div class="chart-wrap"><canvas id="productChart"></canvas></div><div class="mini-stats"><div class="mini-stat"><b>+38%</b><span>pertumbuhan pesanan</span></div><div class="mini-stat"><b>92%</b><span>pelanggan merekomendasikan</span></div></div></article></div></section>
-    <section class="service-band"><div class="service-box"><div><div class="eyebrow" style="color:#0b2854">Pengalaman belanja Sakha</div><h2>Nyaman sejak memilih hingga tidur.</h2></div><div class="service-points"><div class="service-point"><i class="fa-solid fa-box-open"></i><span>Pengemasan rapi & aman</span></div><div class="service-point"><i class="fa-solid fa-headset"></i><span>Customer care setiap hari</span></div><div class="service-point"><i class="fa-solid fa-credit-card"></i><span>Pembayaran fleksibel</span></div><div class="service-point"><i class="fa-solid fa-house-circle-check"></i><span>Antar sampai ke rumah</span></div></div></div></section>
+    <section class="service-band"><div class="service-box"><div><div class="eyebrow" style="color:#0b2854">Pengalaman belanja Sakha</div><h2>Nyaman sejak memilih hingga tidur.</h2></div><div class="service-points"><div class="service-point"><i class="fa-solid fa-box-open"></i><span>Pengemasan rapi & aman</span></div><div class="service-point"><i class="fa-solid fa-headset"></i><span>Customer care setiap hari</span></div><div class="service-point"><i class="fa-solid fa-credit-card"></i><span>Pembayaran fleksibel</span></div><div class="service-point"><i class="fa-solid fa-house-circle-check"></i><span>Antar sampai ke tujuan</span></div></div></div></section>
     <section class="profile-picker"><div class="section-top"><div><div class="eyebrow">Temukan match Anda</div><h2>Kasur yang mengikuti gaya tidur Anda</h2></div><p>Ceritakan kebutuhan utama Anda, tim kami bantu carikan yang paling sesuai.</p></div><div class="profile-grid"><article class="profile-card"><i class="fa-solid fa-feather"></i><h3>Suka tidur empuk</h3><p>Feel lembut yang memeluk tubuh, ideal untuk Anda yang menyukai sensasi plush.</p><a href="#pesan">Konsultasikan <i class="fa-solid fa-arrow-right"></i></a></article><article class="profile-card"><i class="fa-solid fa-person"></i><h3>Butuh support ekstra</h3><p>Dukungan lebih stabil untuk membantu posisi tidur terasa lebih seimbang.</p><a href="#pesan">Konsultasikan <i class="fa-solid fa-arrow-right"></i></a></article><article class="profile-card"><i class="fa-solid fa-snowflake"></i><h3>Mudah merasa gerah</h3><p>Struktur sirkulasi udara yang baik untuk tidur yang lebih sejuk.</p><a href="#pesan">Konsultasikan <i class="fa-solid fa-arrow-right"></i></a></article></div></section>
     <section class="location-section" id="lokasi">
       <div class="location-grid">
@@ -675,20 +768,64 @@
           }, interval);
         };
         items.forEach((item) => {
-          ['mouseenter', 'focus', 'click'].forEach((type) => item.addEventListener(type, () => activate(item)));
+          item.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') activate(item); });
+          item.addEventListener('focus', () => activate(item));
+          // A tap opens the item and the rotation carries on from there
+          item.addEventListener('click', () => { activate(item); if (!hovering) start(); });
           item.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(item); }
           });
         });
-        container.addEventListener('mouseenter', stop);
-        container.addEventListener('focusin', stop);
-        container.addEventListener('touchstart', stop, { passive: true });
-        container.addEventListener('mouseleave', start);
+        let hovering = false;
+        container.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') { hovering = true; stop(); } });
+        container.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') { hovering = false; start(); } });
+        container.addEventListener('focusin', (e) => { if (e.target.matches(':focus-visible')) stop(); });
         container.addEventListener('focusout', start);
         start();
       };
       rotator(document.querySelector('.showcase'), '.panel', 4500);
       rotator(document.querySelector('.layer-card'), '.layer-row', 3500);
+
+      // Review carousel: slides one page at a time, pausing while the visitor reads or swipes
+      const track = document.querySelector('.review-track');
+      if (track && track.children.length > 1) {
+        const carousel = track.closest('.review-strip');
+        const bar = carousel.querySelector('.review-progress span');
+        let timer;
+        let paused = false;
+        const step = () => track.children[1].offsetLeft - track.children[0].offsetLeft;
+        const visible = () => Math.max(1, Math.round(track.clientWidth / step()));
+        const go = (direction) => {
+          const max = track.scrollWidth - track.clientWidth;
+          let left = track.scrollLeft + direction * visible() * step();
+          if (direction > 0 && track.scrollLeft >= max - 4) left = 0;
+          if (direction < 0 && track.scrollLeft <= 4) left = max;
+          track.scrollTo({ left, behavior: reduceMotion ? 'auto' : 'smooth' });
+        };
+        const schedule = () => {
+          clearTimeout(timer);
+          if (reduceMotion || paused) return;
+          timer = setTimeout(() => { go(1); schedule(); }, [3500, 6000, 8000][Math.min(visible(), 3) - 1]);
+        };
+        const update = () => {
+          bar.style.transform = `scaleX(${Math.min(1, (track.scrollLeft + track.clientWidth) / track.scrollWidth)})`;
+          schedule();
+        };
+        const pause = () => { paused = true; clearTimeout(timer); };
+        const resume = () => { paused = false; schedule(); };
+        carousel.querySelector('.review-prev').addEventListener('click', () => go(-1));
+        carousel.querySelector('.review-next').addEventListener('click', () => go(1));
+        track.addEventListener('scroll', update, { passive: true });
+        // Only a real mouse hover or keyboard focus pauses; a tap on a phone must not leave it stuck
+        carousel.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') pause(); });
+        carousel.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') resume(); });
+        carousel.addEventListener('focusin', (e) => { if (e.target.matches(':focus-visible')) pause(); });
+        carousel.addEventListener('focusout', resume);
+        track.addEventListener('touchstart', pause, { passive: true });
+        track.addEventListener('touchend', resume, { passive: true });
+        track.addEventListener('touchcancel', resume, { passive: true });
+        update();
+      }
 
       // Spotlight follows the cursor inside bento cards
       document.querySelectorAll('.bento-card').forEach((card) => {
@@ -731,7 +868,7 @@
           }, 800 + Number(el.dataset.revealDelay));
         });
       }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
-      document.querySelectorAll('.section-top, .showcase,.benefit-grid > div, .bento-card,.review, .cta-box, .number, .guide-card, .compare-text, .comparison-card, .faq-grid > div, .chart-card, .service-box, .profile-card, .location-copy, .map-card').forEach((el) => {
+      document.querySelectorAll('.section-top, .showcase,.benefit-grid > div, .bento-card, .place-grid > li, .places-cta, .review-carousel, .cta-box, .number, .guide-card, .compare-text, .comparison-card, .faq-grid > div, .chart-card, .service-box, .profile-card, .location-copy, .map-card').forEach((el) => {
         const delay = Math.min([...el.parentElement.children].indexOf(el), 5) * 90;
         el.dataset.revealDelay = delay;
         el.style.transitionDelay = delay + 'ms';
